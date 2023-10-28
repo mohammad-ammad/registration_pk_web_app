@@ -25,7 +25,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+            <a href="{{ route('admin.dashboard',['tehsil' => '6', 'province' => '1']) }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard

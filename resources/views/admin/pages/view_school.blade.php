@@ -59,10 +59,10 @@
                       <td>{{$school->city_name}}</td>
                       <td style="background-color: @if($school->status_name === "UnRegistered") rgb(254, 171, 171) @elseif($school->status_name === "Registered") #90EE90 @elseif($school->status_name === "UnderProcess") #FFFF33 @endif">{{$school->status_name}}</td>
                       <td class="d-flex">
-                        <a class="btn btn-primary btn-sm mr-1">
+                        <a href="{{route('admin.school.edit',$school->sc_br_id)}}" class="btn btn-primary btn-sm mr-1">
                           <i class="fas fa-edit"></i>
                         </a>
-                        <a class="btn btn-danger btn-sm">
+                        <a href="javascript:void(0);" data-id="{{ $school->sc_br_id }}" data-sc_id="{{ $school->fk_school_id }}" data-name="{{ $school->school_name }}" class="btn btn-danger btn-sm delete-school" data-toggle="modal" data-target="#modal-sm">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>
@@ -76,6 +76,28 @@
           </div>
         </div>
       </section>
+
+      <div class="modal fade" id="modal-sm">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="school_name_model"></p>
+            </div>
+            <div class="modal-footer justify-content-end">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+              <a href="" class="btn btn-success btn-delete">Yes</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
 
       @if(session('error'))
           <input type="hidden" id="error-message" value="{{ session('error') }}">
@@ -116,6 +138,20 @@
             "autoWidth": false,
             "responsive": true,
           });
+
+          $(".delete-school").click(function() {
+            var schoolBrId = $(this).data("id");
+            var schoolId = $(this).data("sc_id");
+            var schoolName = $(this).data("name");
+            
+            const _schoolName = $('#school_name_model');
+            const text = `Do You Want to Delete ${schoolName}?`
+            _schoolName.text(text);
+
+            var deleteUrl = `/admin/school/delete/${schoolId}/${schoolBrId}`;
+            $(".btn-delete").attr('href', deleteUrl);
+          });
+
         });
       </script>
 @endsection

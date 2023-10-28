@@ -154,7 +154,6 @@
                     url: _url,
                     type: 'GET',
                     success: function(data) {
-                      console.log(data)
                         data.forEach(function(schoolData) {
                             var status = parseInt(schoolData.sc_br_status);
                             var iconColor;
@@ -180,7 +179,7 @@
                                 name: schoolData.school_name,
                                 city: schoolData.city_name,
                                 latlng: [parseFloat(schoolData.latitude), parseFloat(schoolData.longitude)],
-                                moreInfoURL: '{{route("admin.dashboard")}}',
+                                moreInfoURL: `/admin/school/${schoolData.sc_br_id}`,
                                 icon: customIcon 
                             };
 

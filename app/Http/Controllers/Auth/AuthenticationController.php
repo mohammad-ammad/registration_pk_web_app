@@ -27,7 +27,7 @@ class AuthenticationController extends Controller
         {
             if (Hash::check($password, $user->password)) {
                 auth()->login($user);
-                return redirect('/admin/dashboard');
+                return redirect('/admin/dashboard?tehsil=6&province=1');
             } else {
                 return redirect('/admin/login')->with('error', 'Invalid login credentials.');
             }
