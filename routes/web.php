@@ -51,3 +51,18 @@ Route::prefix('admin')->group(function () {
     });
     
 });
+
+Route::get('/', function () {
+    return view('client.pages.index');
+});
+
+Route::get('/about-us', function () {
+    return view('client.pages.about');
+});
+
+Route::get('/teacher-training', function () {
+    return view('client.pages.teacher-training');
+});
+
+Route::get('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
+Route::post('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "store"])->name("client.add_school");
