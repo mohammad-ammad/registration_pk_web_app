@@ -19,7 +19,20 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [App\Http\Controllers\Auth\AuthenticationController::class, "login"])->name("auth.login");
 
     Route::middleware('auth.custom')->group(function(){
+        // * dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name("admin.dashboard");
+        Route::get('/dashboard/school_level/ajax/{level}', [App\Http\Controllers\Admin\DashboardController::class, "get_schools_by_level_ajax"])->name("admin.dashboard_school_level_ajax");
+        Route::get('/dashboard/school_affiliated/ajax/{affiliated}', [App\Http\Controllers\Admin\DashboardController::class, "get_schools_by_affiliated_ajax"])->name("admin.dashboard_school_affiliated_ajax");
+        Route::get('/dashboard/school_type/ajax/{type}', [App\Http\Controllers\Admin\DashboardController::class, "get_schools_by_type_ajax"])->name("admin.dashboard_school_type_ajax");
+        Route::get('/dashboard/master/search/sr/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_sr_ajax"]);
+        Route::get('/dashboard/master/search/province/list/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_province_list_ajax"]);
+        Route::get('/dashboard/master/search/district/list/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_district_list_ajax"]);
+        Route::get('/dashboard/master/search/tehsil/list/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_tehsil_list_ajax"]);
+        Route::get('/dashboard/master/search/pr/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_pr_ajax"]);
+        Route::get('/dashboard/master/search/ds/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ds_ajax"]);
+        Route::get('/dashboard/master/search/ts/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ts_ajax"]);
+
+
         Route::get('/logout', [App\Http\Controllers\Auth\AuthenticationController::class, "logout"])->name("admin.logout");
 
         // * geo locator

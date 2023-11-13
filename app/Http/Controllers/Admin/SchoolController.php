@@ -68,12 +68,17 @@ class SchoolController extends Controller
             'school_name' => 'required',
         ]);
 
+        $letter = $this->getLetterForSchoolType($request->school_level);
+        $serialNumber = $this->generateUniqueSerialNumber($letter);
+
         $branch = new SchoolBranches();
         $branch->fk_school_id = $request->school_name;
         $branch->sc_br_name = $request->branch_name; 
         $branch->sc_br_address = $request->school_address;
         $branch->sc_br_status = $request->school_status;
         $branch->sc_br_level = $request->school_level;
+        $branch->sc_br_emi_no = $serialNumber;
+        $branch->sc_br_affiliated = $request->school_affiliated;
         $branch->sc_br_type = $request->school_type;
         $branch->instruction_medium = $request->instruction_medium;
         $branch->no_of_boys = $request->no_of_boys;
@@ -112,12 +117,17 @@ class SchoolController extends Controller
     }
 
     public function edit_school(Request $request,$id){
+
+        $schoolType = $request->input('school_type'); 
+        $letter = $this->getLetterForSchoolType($request->school_level);
+
         $branch = SchoolBranches::find($id);
         $branch->fk_school_id = $request->school_name;
         $branch->sc_br_name = $request->branch_name; 
         $branch->sc_br_address = $request->school_address;
         $branch->sc_br_status = $request->school_status;
         $branch->sc_br_level = $request->school_level;
+        $branch->sc_br_affiliated = $request->school_affiliated;
         $branch->sc_br_type = $request->school_type;
         $branch->instruction_medium = $request->instruction_medium;
         $branch->no_of_boys = $request->no_of_boys;
@@ -140,6 +150,12 @@ class SchoolController extends Controller
 
         $branch->update();
 
+        if ($branch->sc_br_emi_no[3] !== $letter) {
+            $serialNumber = $this->generateUniqueSerialNumber($letter);
+            $branch->sc_br_emi_no = $serialNumber;
+            $branch->update();
+        }
+
         return redirect()->route('admin.school')->with('success', 'School updated successfully');
     }
 
@@ -156,5 +172,34 @@ class SchoolController extends Controller
             DB::rollBack();
             return redirect()->route('admin.school')->with('error', 'Delete operation failed');
         }
+    }
+
+    private function getLetterForSchoolType($schoolType)
+    {
+        switch ($schoolType) {
+            case 'primary':
+                return 'P';
+            case 'secondary':
+                return 'S';
+            case 'middle':
+                return 'E';
+            default:
+                return '';
+        }
+    }
+
+    private function generateUniqueSerialNumber($letter)
+    {
+        $baseSerialNumber = sprintf('%03d', SchoolBranches::max('sc_br_id') + 1) . $letter;
+
+        $uniqueSerialNumber = $baseSerialNumber;
+        $counter = 1;
+
+        while (SchoolBranches::where('sc_br_emi_no', $uniqueSerialNumber)->exists()) {
+            $uniqueSerialNumber = $baseSerialNumber . '-' . $counter;
+            $counter++;
+        }
+
+        return $uniqueSerialNumber;
     }
 }

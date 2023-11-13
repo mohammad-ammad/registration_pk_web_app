@@ -12,7 +12,7 @@
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-
+  @include('admin.partials.master_search')
   <!-- Control Sidebar -->
   @include('admin.partials.sidecontrol')
   <!-- /.control-sidebar -->

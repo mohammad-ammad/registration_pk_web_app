@@ -93,7 +93,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>School status</label>
-                                <select class="form-control select2bs4" name="school_status" style="width: 100%;" required>
+                                <select class="form-control" name="school_status" style="width: 100%;" required>
                                   <option value="2">Un-Registered</option>
                                   <option value="1">Registered</option>
                                   <option value="3">Under Progress</option>
@@ -132,7 +132,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>School Type</label>
-                                <select class="form-control select2bs4" name="school_type" style="width: 100%;" required>
+                                <select class="form-control" name="school_type" style="width: 100%;" required>
                                   <option value="boys">Boys</option>
                                   <option value="girls">Girls</option>
                                   <option value="combined">Co-education</option>
@@ -143,7 +143,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Instruction Medium</label>
-                                <select class="form-control select2bs4" name="instruction_medium" style="width: 100%;" required>
+                                <select class="form-control" name="instruction_medium" style="width: 100%;" required>
                                   <option value="english">English</option>
                                   <option value="urdu">Urdu</option>
                                 </select>
@@ -153,13 +153,23 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>School Level</label>
-                                <select class="form-control select2bs4" name="school_level" style="width: 100%;" required>
+                                <select class="form-control" name="school_level" style="width: 100%;" required>
                                   <option value="primary">Primary</option>
                                   <option value="middle">Elementary</option>
                                   <option value="secondary">Secondary</option>
                                 </select>
                               </div>
                         </div>
+
+                        <div class="col-md-3">
+                          <div class="form-group">
+                              <label>School Affiliated with</label>
+                              <select class="form-control" name="school_affiliated" style="width: 100%;" required>
+                                <option value="BISE">BISE</option>
+                                <option value="FBISE">FBISE</option>
+                              </select>
+                            </div>
+                      </div>
 
                         <div class="col-md-3">
                             <div class="form-group">

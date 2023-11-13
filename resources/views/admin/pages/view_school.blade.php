@@ -28,7 +28,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All Schools</h3>
+              <h3 class="card-title">Master List</h3>
               <div class="card-tools">
                 <a href="{{route('admin.school.add')}}" class="btn btn-primary">
                   Add School
@@ -43,7 +43,10 @@
                   <th>SN.</th>
                   <th>School Name</th>
                   <th>School Address</th>
-                  <th>School City</th>
+                  <th>School Level</th>
+                  <th>Principal/Owner</th>
+                  <th>School Type</th>
+                  <th>Affiliated with</th>
                   <th>School Status</th>
                   <th>Actions</th>
                 </tr>
@@ -51,12 +54,30 @@
                 <tbody>
                   @foreach ($schools as $school)
                     <tr>
-                      <td>{{$loop->iteration}}</td>
+                      <td>{{$school->sc_br_emi_no}}</td>
                       <td>
                         {{$school->school_name}}({{$school->sc_br_name}})
                       </td>
                       <td>{{$school->sc_br_address}}</td>
-                      <td>{{$school->city_name}}</td>
+                      <td>
+                        @if($school->sc_br_level === 'primary')
+                        Primary 
+                        @elseif($school->sc_br_level === 'middle')
+                        Elementary 
+                        @elseif($school->sc_br_level === 'secondary')
+                        Secondary 
+                        @endif
+                      </td>
+                      <td>
+                        Principal: {{$school->principal_name}} ({{$school->principal_phone}})<br/>
+                        Onwer: {{$school->owner_name}} ({{$school->owner_phone}})
+                      </td>
+                      <td>
+                        {{$school->sc_br_type}}
+                      </td>
+                      <td>
+                        {{$school->sc_br_affiliated}}
+                      </td>
                       <td style="background-color: @if($school->status_name === "UnRegistered") rgb(254, 171, 171) @elseif($school->status_name === "Registered") #90EE90 @elseif($school->status_name === "UnderProcess") #FFFF33 @endif">{{$school->status_name}}</td>
                       <td class="d-flex">
                         <a href="{{route('admin.school.edit',$school->sc_br_id)}}" class="btn btn-primary btn-sm mr-1">

@@ -145,6 +145,16 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
+                                <label>School Affiliated with</label>
+                                <select class="form-control" name="school_affiliated" style="width: 100%;" required>
+                                  <option value="BISE" {{ $school->sc_br_affiliated == "BISE" ? 'selected' : '' }}>BISE</option>
+                                  <option value="FBISE" {{ $school->sc_br_affiliated == "FBISE" ? 'selected' : '' }}>FBISE</option>
+                                </select>
+                              </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
                                 <label for="">Owner Name</label>
                                 <input type="text" name="owner_name" class="form-control" id="" value="{{$school->owner_name}}" required>
                               </div>
