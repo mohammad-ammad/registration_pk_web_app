@@ -56,6 +56,13 @@
                     </select>
                 </div>
                 <div>
+                    <label  class="text-sm font-semibold">School Affiliated with</label>
+                    <select class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" name="school_affiliated" style="width: 100%;" required>
+                      <option value="BISE">BISE</option>
+                      <option value="FBISE">FBISE</option>
+                    </select>
+                </div>
+                <div>
                     <label for="" class="text-sm font-semibold">Instruction Medium</label>
                     <select name="instruction_medium" id="" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
                         <option value="english">English</option>

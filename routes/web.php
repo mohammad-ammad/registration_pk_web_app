@@ -79,3 +79,15 @@ Route::get('/teacher-training', function () {
 
 Route::get('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
 Route::post('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "store"])->name("client.add_school");
+
+// CLEAR CACHE
+Route::get('/artisan/clear-cache', function() {
+    Artisan::call('config:cache');
+    return "Done - Config cache cleared";
+});
+
+// CLEAR ROUTES
+Route::get('/artisan/route-cache', function() {
+    Artisan::call('route:cache');
+    return "Done - routes cache are cleared";
+});

@@ -31,12 +31,17 @@ class SchoolController extends Controller
 
         if($school_id)
         {
+            $letter = $this->getLetterForSchoolType($request->school_level);
+            $serialNumber = $this->generateUniqueSerialNumber($letter);
+
             $branch = new SchoolBranches();
             $branch->fk_school_id = $school_id;
             $branch->sc_br_name = $request->branch_name; 
             $branch->sc_br_address = $request->school_address;
             $branch->sc_br_status = $request->school_status;
+            $branch->sc_br_emi_no = $serialNumber;
             $branch->sc_br_level = $request->school_level;
+            $branch->sc_br_affiliated = $request->school_affiliated;
             $branch->sc_br_type = $request->school_type;
             $branch->instruction_medium = $request->instruction_medium;
             $branch->no_of_boys = $request->no_of_boys;
@@ -68,5 +73,34 @@ class SchoolController extends Controller
             return redirect()->route('client.school')->with('error', 'Delete operation failed');
         }
 
+    }
+
+    private function getLetterForSchoolType($schoolType)
+    {
+        switch ($schoolType) {
+            case 'primary':
+                return 'P';
+            case 'secondary':
+                return 'S';
+            case 'middle':
+                return 'E';
+            default:
+                return '';
+        }
+    }
+
+    private function generateUniqueSerialNumber($letter)
+    {
+        $baseSerialNumber = sprintf('%03d', SchoolBranches::max('sc_br_id') + 1) . $letter;
+
+        $uniqueSerialNumber = $baseSerialNumber;
+        $counter = 1;
+
+        while (SchoolBranches::where('sc_br_emi_no', $uniqueSerialNumber)->exists()) {
+            $uniqueSerialNumber = $baseSerialNumber . '-' . $counter;
+            $counter++;
+        }
+
+        return $uniqueSerialNumber;
     }
 }
