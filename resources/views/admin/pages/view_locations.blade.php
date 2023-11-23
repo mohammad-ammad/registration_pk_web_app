@@ -66,7 +66,7 @@
                       
                       <td class="d-flex">
                         @if ($location)
-                          <a href="{{ route('admin.location.edit', ['province_id' => $location->province_id, 'district_id'=>$location->district_id]) }}" class="btn btn-primary btn-sm mr-1">
+                          <a href="#" class="btn btn-primary btn-sm mr-1">
                             <i class="fas fa-edit"></i>
                           </a>
                         @endif
