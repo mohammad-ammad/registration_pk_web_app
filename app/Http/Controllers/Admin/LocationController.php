@@ -20,7 +20,6 @@ class LocationController extends Controller
                                 ->rightjoin('districts','districts.district_id','tehsils.fk_district_id')
                                 ->rightjoin('provinces','provinces.province_id','districts.fk_province_id')
                                 ->get();
-
         return view("admin.pages.view_locations")->with('locations',$locations);
     }
 
@@ -138,5 +137,17 @@ class LocationController extends Controller
         $subarea->save();
 
         return redirect()->route('admin.location.add')->with('success', 'Sub-Area added successfully');
+    }
+    public function edit_view($province_id) {
+        $province = Province::where('province_id',$province_id)->get();  
+        return view("admin.pages.edit_location")->with('province', $province)->with('location', $location);
+    }
+    public function edit_location(Request $request,$id){
+        $location = Subareas::find($id);
+        $location->fk_province_id = $request->input('province');
+        $location->fk_district_id = $request->input('district');
+        $location->fk_tahsil_id = $request->input('tehsil');
+        $location->fk_city_id = $request->input('city');
+        $location->fk_area_id = $request->input('area');
     }
 }

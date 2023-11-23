@@ -104,35 +104,35 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">No of Boys</label>
-                                <input type="text" name="no_of_boys" class="form-control" id="" placeholder="Enter No of Boys" required>
+                                <input type="text" name="no_of_boys" class="form-control" id="" placeholder="Enter No of Boys" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">No of Girls</label>
-                                <input type="text" name="no_of_girls" class="form-control" id="" placeholder="Enter No of Girls" required>
+                                <input type="text" name="no_of_girls" class="form-control" id="" placeholder="Enter No of Girls" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Covered Area</label>
-                                <input type="text" name="covered_area" class="form-control" id="" placeholder="Enter Covered Area" required>
+                                <input type="text" name="covered_area" class="form-control" id="" placeholder="Enter Covered Area" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">No of Teachers</label>
-                                <input type="text" name="no_of_teachers" class="form-control" id="" placeholder="Enter No of Teachers" required>
+                                <input type="text" name="no_of_teachers" class="form-control" id="" placeholder="Enter No of Teachers" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>School Type</label>
-                                <select class="form-control" name="school_type" style="width: 100%;" required>
+                                <select class="form-control" name="school_type" style="width: 100%;">
                                   <option value="boys">Boys</option>
                                   <option value="girls">Girls</option>
                                   <option value="combined">Co-education</option>
@@ -143,7 +143,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Instruction Medium</label>
-                                <select class="form-control" name="instruction_medium" style="width: 100%;" required>
+                                <select class="form-control" name="instruction_medium" style="width: 100%;">
                                   <option value="english">English</option>
                                   <option value="urdu">Urdu</option>
                                 </select>
@@ -153,7 +153,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>School Level</label>
-                                <select class="form-control" name="school_level" style="width: 100%;" required>
+                                <select class="form-control" name="school_level" style="width: 100%;">
                                   <option value="primary">Primary</option>
                                   <option value="middle">Elementary</option>
                                   <option value="secondary">Secondary</option>
@@ -164,8 +164,7 @@
                         <div class="col-md-3">
                           <div class="form-group">
                               <label>School Affiliated with</label>
-                              <select class="form-control" name="school_affiliated" style="width: 100%;" required>
-                                <option value="BISE">BISE</option>
+                              <select class="form-control" name="school_affiliated" style="width: 100%;" >
                                 <option value="FBISE">FBISE</option>
                               </select>
                             </div>
@@ -174,49 +173,49 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Owner Name</label>
-                                <input type="text" name="owner_name" class="form-control" id="" placeholder="Enter Owner Name" required>
+                                <input type="text" name="owner_name" class="form-control" id="" placeholder="Enter Owner Name" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Owner Phone No</label>
-                                <input type="text" name="owner_ph_no" class="form-control" id="" placeholder="Enter Owner Phone No" required>
+                                <input type="text" name="owner_ph_no" class="form-control" id="" placeholder="Enter Owner Phone No" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Owner Email</label>
-                                <input type="email" name="owner_email" class="form-control" id="" placeholder="Enter Owner Email" required>
+                                <input type="email" name="owner_email" class="form-control" id="" placeholder="Enter Owner Email" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Principal Name</label>
-                                <input type="text" name="principal_name" class="form-control" id="" placeholder="Enter Principal Name" required>
+                                <input type="text" name="principal_name" class="form-control" id="" placeholder="Enter Principal Name" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Principal Phone No</label>
-                                <input type="text" name="principal_ph_no" class="form-control" id="" placeholder="Enter Principal Phone No" required>
+                                <input type="text" name="principal_ph_no" class="form-control" id="" placeholder="Enter Principal Phone No" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Principal Email</label>
-                                <input type="email" name="principal_email" class="form-control" id="" placeholder="Enter Principal Email" required>
+                                <input type="email" name="principal_email" class="form-control" id="" placeholder="Enter Principal Email" >
                               </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select Province</label>
-                                <select class="form-control select2bs4" id="provinceDropdown" name="province" style="width: 100%;" required>
+                                <select class="form-control select2bs4" id="provinceDropdown" name="province" style="width: 100%;" >
                                   <option value="">Choose Province</option>
                                   @foreach ($provinces as $province)
                                       <option value="{{$province->province_id}}">{{$province->province_name}}</option>
@@ -228,7 +227,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select District</label>
-                                <select class="form-control select2bs4" id="districtDropdown" name="district" style="width: 100%;" required>
+                                <select class="form-control select2bs4" id="districtDropdown" name="district" style="width: 100%;" >
                                 </select>
                               </div>
                         </div>
@@ -236,7 +235,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select Tehsil</label>
-                                <select class="form-control select2bs4" id="tehsilDropdown" name="tehsil" style="width: 100%;" required>
+                                <select class="form-control select2bs4" id="tehsilDropdown" name="tehsil" style="width: 100%;" >
                                 </select>
                               </div>
                         </div>
@@ -244,7 +243,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select City</label>
-                                <select class="form-control select2bs4" id="citiesDropdown" name="city" style="width: 100%;" required>
+                                <select class="form-control select2bs4" id="citiesDropdown" name="city" style="width: 100%;" >
                                 </select>
                               </div>
                         </div>

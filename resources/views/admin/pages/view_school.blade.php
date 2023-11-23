@@ -80,9 +80,9 @@
                       </td>
                       <td style="background-color: @if($school->status_name === "UnRegistered") rgb(254, 171, 171) @elseif($school->status_name === "Registered") #90EE90 @elseif($school->status_name === "UnderProcess") #FFFF33 @endif">{{$school->status_name}}</td>
                       <td class="d-flex">
-                        <a href="{{route('admin.school.edit',$school->sc_br_id)}}" class="btn btn-primary btn-sm mr-1">
+                         <a href="{{route('admin.school.edit',$school->sc_br_id)}}" class="btn btn-primary btn-sm mr-1">
                           <i class="fas fa-edit"></i>
-                        </a>
+                        </a> 
                         <a href="javascript:void(0);" data-id="{{ $school->sc_br_id }}" data-sc_id="{{ $school->fk_school_id }}" data-name="{{ $school->school_name }}" class="btn btn-danger btn-sm delete-school" data-toggle="modal" data-target="#modal-sm">
                           <i class="fas fa-trash"></i>
                         </a>

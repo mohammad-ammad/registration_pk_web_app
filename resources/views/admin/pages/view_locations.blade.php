@@ -50,6 +50,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                  {{-- {{dd($locations)}} --}}
                     @foreach ($locations as $location)
                     <tr>
                       <td>{{$loop->iteration}}</td>
@@ -64,9 +65,11 @@
                     </td>
                       
                       <td class="d-flex">
-                        <a class="btn btn-primary btn-sm mr-1">
-                          <i class="fas fa-edit"></i>
-                        </a>
+                        @if ($location)
+                          <a href="{{ route('admin.location.edit', ['province_id' => $location->province_id, 'district_id'=>$location->district_id]) }}" class="btn btn-primary btn-sm mr-1">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        @endif
                         <a class="btn btn-danger btn-sm">
                           <i class="fas fa-trash"></i>
                         </a>
