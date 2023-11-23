@@ -138,16 +138,43 @@ class LocationController extends Controller
 
         return redirect()->route('admin.location.add')->with('success', 'Sub-Area added successfully');
     }
-    public function edit_view($province_id) {
-        $province = Province::where('province_id',$province_id)->get();  
-        return view("admin.pages.edit_location")->with('province', $province)->with('location', $location);
+    public function edit_view($province_id , $district_id , $tehsil_id , $city_id , $area_id , $subarea_id) {
+        //getting data from models
+        $province = Province::where('province_id',$province_id)->get();
+        $district = District::where('district_id',$district_id)->get();
+        $tehsil = Tehsil::where('tehsil_id',$tehsil_id)->get();
+        $city = City::where('city_id',$city_id)->get();
+        $area = Area::where('area_id',$area_id)->get();
+        $subarea = Subarea::where('subarea_id',$subarea_id)->get();
+        //show dropdown data from models
+        $all_povinces = Province::get();
+        $all_districts = District::get();
+        $all_tehsils = Tehsil::get();
+        $all_cities = City::get();
+        $all_areas = Area::get();
+        return view("admin.pages.edit_location")
+        ->with('province', $province)
+        ->with('district', $district);
+        return view("admin.pages.edit_location")
+        ->with('province', $province)
+        ->with('district', $district)
+        ->with('tehsil', $tehsil)
+        ->with('city', $city)
+        ->with('area', $area)
+        ->with('subarea', $subarea)
+        ->with('all_provinces', $all_provinces)
+        ->with('all_districts', $all_districts)
+        ->with('all_tehsils', $all_tehsils)
+        ->with('all_cities', $all_cities)
+        ->with('all_areas', $all_areas);
     }
-    public function edit_location(Request $request,$id){
-        $location = Subareas::find($id);
-        $location->fk_province_id = $request->input('province');
-        $location->fk_district_id = $request->input('district');
-        $location->fk_tahsil_id = $request->input('tehsil');
-        $location->fk_city_id = $request->input('city');
-        $location->fk_area_id = $request->input('area');
-    }
+    // public function edit_location(Request $request,$id){
+    //     $location = Subareas::find($id);
+    //     $location->fk_province_id = $request->input('province');
+    //     $location->fk_district_id = $request->input('district');
+    //     $location->fk_tahsil_id = $request->input('tehsil');
+    //     $location->fk_city_id = $request->input('city');
+    //     $location->fk_area_id = $request->input('area');
+    //     $location->fk_subarea_id = $request->input('subarea');
+    // }
 }
