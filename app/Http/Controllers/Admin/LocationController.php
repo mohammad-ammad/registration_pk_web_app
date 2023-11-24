@@ -143,18 +143,15 @@ class LocationController extends Controller
         $province = Province::where('province_id',$province_id)->get();
         $district = District::where('district_id',$district_id)->get();
         $tehsil = Tehsil::where('tehsil_id',$tehsil_id)->get();
-        $city = City::where('city_id',$city_id)->get();
+        $city = Cities::where('city_id',$city_id)->get();
         $area = Area::where('area_id',$area_id)->get();
         $subarea = Subarea::where('subarea_id',$subarea_id)->get();
         //show dropdown data from models
         $all_povinces = Province::get();
         $all_districts = District::get();
         $all_tehsils = Tehsil::get();
-        $all_cities = City::get();
+        $all_cities = Cities::get();
         $all_areas = Area::get();
-        return view("admin.pages.edit_location")
-        ->with('province', $province)
-        ->with('district', $district);
         return view("admin.pages.edit_location")
         ->with('province', $province)
         ->with('district', $district)

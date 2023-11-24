@@ -64,19 +64,10 @@
                         {{ $location->subarea_name}}
                     </td>
                     <td>
-                    <a href="{{ route('admin.location.edit', [
-                      'province_id' => $location->province_id,
-                      'district_id' => $location->district_id,
-                      'tehsil_id' => $location->tehsil_id,
-                      'city_id' => $location->city_id,
-                      'area_id' => $location->area_id,
-                      'subarea_id' => $location->subarea_id
-                       ]) }}" class="btn btn-primary btn-sm mr-1">
-                        @if ($location)
-                          
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        @endif
+                    <a href="/admin/locations/edit/{{$location->province_id}}/{{$location->district_id}}/{{$location->tehsil_id}}/{{$location->city_id}}/{{$location->area_id}}/{{$location->subarea_id}}" class="btn btn-primary btn-sm mr-1">
+                        
+                        <i class="fas fa-edit"></i>
+                      </a>
                       <a class="btn btn-danger btn-sm">
                           <i class="fas fa-trash"></i>
                         </a>
