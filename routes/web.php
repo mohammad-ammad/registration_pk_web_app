@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\AffiliationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,8 +62,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/locations/add/city', [App\Http\Controllers\Admin\LocationController::class, "add_city"])->name("admin.location.store_cities");
         Route::post('/locations/add/area', [App\Http\Controllers\Admin\LocationController::class, "add_area"])->name("admin.location.store_area");
         Route::post('/locations/add/subarea', [App\Http\Controllers\Admin\LocationController::class, "add_subarea"])->name("admin.location.store_subarea");
-        // Route::get('/location/edit/{province_id}/{district_id}', [App\Http\Controllers\Admin\LocationController::class, "edit_view"])->name("admin.location.edit");
-        // Route::post('/location/edit/{id}' , [App\Http\Controllers\Admin\LocationController::class, "edit_location"])->name("admin.location.update");
+        Route::get('/locations/edit/{province_id}/{district_id}/{tehsil_id}/{city_id}/{area_id}/{subarea_id}', [App\Http\Controllers\Admin\LocationController::class, "edit_view"])->name("admin.location.edit");
+        Route::post('/locations/edit/{id}' , [App\Http\Controllers\Admin\LocationController::class, "edit_location"])->name("admin.location.update");
     });
     
 });
@@ -93,3 +94,7 @@ Route::get('/artisan/route-cache', function() {
     Artisan::call('route:cache');
     return "Done - routes cache are cleared";
 });
+Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
+Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
+Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
+Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
