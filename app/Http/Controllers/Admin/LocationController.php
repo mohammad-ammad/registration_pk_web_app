@@ -152,18 +152,18 @@ class LocationController extends Controller
         $all_tehsils = Tehsil::get();
         $all_cities = Cities::get();
         $all_areas = Area::get();
-        return view("admin.pages.edit_location")
-        ->with('province', $province)
-        ->with('district', $district)
-        ->with('tehsil', $tehsil)
-        ->with('city', $city)
-        ->with('area', $area)
-        ->with('subarea', $subarea)
-        ->with('all_provinces', $all_provinces)
-        ->with('all_districts', $all_districts)
-        ->with('all_tehsils', $all_tehsils)
-        ->with('all_cities', $all_cities)
-        ->with('all_areas', $all_areas);
+        return view("admin.pages.edit_location");
+        // ->with('province', $province)
+        // ->with('district', $district)
+        // ->with('tehsil', $tehsil)
+        // ->with('city', $city)
+        // ->with('area', $area)
+        // ->with('subarea', $subarea)
+        // ->with('all_provinces', $all_provinces)
+        // ->with('all_districts', $all_districts)
+        // ->with('all_tehsils', $all_tehsils)
+        // ->with('all_cities', $all_cities)
+        // ->with('all_areas', $all_areas);
     }
     // public function edit_location(Request $request,$id){
     //     $location = Subareas::find($id);

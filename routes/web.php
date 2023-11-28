@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\AffiliationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,3 +94,7 @@ Route::get('/artisan/route-cache', function() {
     Artisan::call('route:cache');
     return "Done - routes cache are cleared";
 });
+Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
+Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
+Route::get('/affiliation/{id}', 'AffiliationController@edit');
+
