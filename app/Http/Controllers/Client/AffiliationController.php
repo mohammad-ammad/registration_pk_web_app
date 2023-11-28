@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Affiliation;
+use App\Models\Province;
+use App\Models\Cities;
+use App\Models\Tehsil;
+use App\Models\District;
 
 class AffiliationController extends Controller
 {
     public function showForm(){
-        $affiliationData = Affiliation::all();
-        return view('client.affiliation-form',['affiliationData' => $affiliationData]);
+        $province = Province::get();
+        $city = Cities::get();
+        $tehsil = Tehsil::get();
+        $district = District::get();
+        return view('client.pages.affiliation-form')->with('provinces', $province)->with('cities' , $city)->with('tehsils' , $tehsil)->with('districts' , $district);
     }
     public function submitForm(Request $request)
     {
@@ -39,7 +46,7 @@ class AffiliationController extends Controller
         $frontCnicPath = $request->file('frontCnic')->store('cnic', 'public');
         $backCnicPath = $request->file('backCnic')->store('cnic', 'public');
         //crate new form
-        Affiliation::create([
+        $Affiliation = Affiliation::create([
             'institute_name' => $validatedData['instituteName'],
             'institute_address' => $validatedData['instituteAddress'],
             'affiliation_type' => $validatedData['affiliationType'],
@@ -59,9 +66,8 @@ class AffiliationController extends Controller
             'front_cnic_path' => $frontCnicPath,
             'back_cnic_path' => $backCnicPath,
         ]);
-        $id = $request->input('id');
-        $affiliationData = $this->getAffiliationData($id);
-        return response()->json($affiliationData);
+         
+        return back();
     }
     public function getAffiliationData()
     {
