@@ -210,7 +210,7 @@ class LocationController extends Controller
             'subarea_name' => 'required',
         ]);
         $subarea = Subarea::find($subarea_id);
-        $subarea->subarea_name = $request->subarea;
+        $subarea->subarea_name = $request->subarea_name;
         $subarea->save();
         return back();
     }
