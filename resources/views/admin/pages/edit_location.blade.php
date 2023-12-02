@@ -55,6 +55,7 @@
         <div class="container-fluid">
             <div class="card card-default">
                 <form action="{{route('admin.location.update.district' , $district->district_id)}}" method="post">
+                
                   @csrf
                   <div class="card-header">
                     <h3 class="card-title">Edit Destrict</h3>
@@ -71,7 +72,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Select Province</label>
-                                <select class="form-control select2bs4" name="province_id" id="" style="width: 100%;" required>
+                                <select class="form-control select2bs4" name="province_name" id="" style="width: 100%;" required>
                                     <option value="">Choose Province</option>
                                         @foreach ($provinces as $provincess)
                                             <option value="{{$provincess->province_id}}" {{ $provincess->province_id == $provincess->province_id ? 'selected' : '' }}>{{$provincess->province_name}}</option>

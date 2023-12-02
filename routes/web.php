@@ -89,6 +89,7 @@ Route::get('/teacher-training', function () {
 });
 
 Route::get('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
+Route::get('/school-app-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
 Route::post('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "store"])->name("client.add_school");
 
 // CLEAR CACHE
@@ -103,6 +104,7 @@ Route::get('/artisan/route-cache', function() {
     return "Done - routes cache are cleared";
 });
 Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
+Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
 Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
-Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
+//Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);

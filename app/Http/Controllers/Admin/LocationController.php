@@ -171,6 +171,7 @@ class LocationController extends Controller
         ]);
         $district = District::find($district_id);
         $district->district_name = $request->district_name;
+        // $district->province_name = $request->province_name;
         $district->save();
          return back();
     }

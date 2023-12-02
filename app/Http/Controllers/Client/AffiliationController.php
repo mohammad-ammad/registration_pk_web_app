@@ -12,12 +12,26 @@ use App\Models\District;
 
 class AffiliationController extends Controller
 {
-    public function showForm(){
+    public function showForm(Request $request){
         $province = Province::get();
         $city = Cities::get();
         $tehsil = Tehsil::get();
         $district = District::get();
-        return view('client.pages.affiliation-form')->with('provinces', $province)->with('cities' , $city)->with('tehsils' , $tehsil)->with('districts' , $district);
+
+    // Check if the request is for the app form
+    if ($request->is('affiliation-app-form')) {
+        return view('client.pages.affiliation-app-form')
+            ->with('provinces', $province)
+            ->with('cities', $city)
+            ->with('tehsils', $tehsil)
+            ->with('districts', $district);
+    }
+    // Default to the web form
+    return view('client.pages.affiliation-form')
+        ->with('provinces', $province)
+        ->with('cities', $city)
+        ->with('tehsils', $tehsil)
+        ->with('districts', $district);
     }
     public function submitForm(Request $request)
     {

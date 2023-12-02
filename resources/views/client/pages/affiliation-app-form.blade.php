@@ -1,10 +1,15 @@
-@extends('client.layout')
-@section('styles')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('client.partials.header')
+    @include('client.partials.Scripts')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-@endsection
-@section('content')
-<section class="pt-44 px-4 md:px-10">
+</head>
+<body>
+<section class="pt-35 px-4 md:px-5">
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
         <h1 class="text-2xl md:text-3xl font-semibold my-3">BISE Rwp Affiliation Form </h1>
 
@@ -133,5 +138,5 @@
           </form>
     </div>
 </section>
-@endsection
-
+</body>
+</html>
