@@ -147,7 +147,7 @@
                             <div class="form-group">
                                 <label>School Affiliated with</label>
                                 <select class="form-control" name="school_affiliated" style="width: 100%;" required>
-                                  <option value="BISE" {{ $school->sc_br_affiliated == "BISE" ? 'selected' : '' }}>BISE</option>
+                                  <option value="BISE" {{ $school->sc_br_affiliated == "BISE" ? 'selected' : '' }}>BISE (Rawalpindi)</option>
                                   <option value="FBISE" {{ $school->sc_br_affiliated == "FBISE" ? 'selected' : '' }}>FBISE</option>
                                 </select>
                               </div>
@@ -389,7 +389,7 @@
                     var specifiedLocation = L.latLng(specifiedLat, specifiedLng);
                     specifiedLocationMarker = L.marker(specifiedLocation).addTo(map).bindPopup('Specified Location');
 
-                    var distance = userLocation.distanceTo(specifiedLocation);
+                    var distance = userLocation.distanceTo(specifiedLocation) / 1000;
 
                     var polyline = L.polyline([userLocation, specifiedLocation], { color: 'blue' }).addTo(map);
 
@@ -397,7 +397,7 @@
                     
                     map.fitBounds(bounds);
 
-                    polyline.bindPopup('Distance: ' + distance.toFixed(2) + ' meters').openPopup();
+                    polyline.bindPopup('Distance: ' + distance.toFixed(2) + ' km').openPopup();
                 });
         </script>
 @endsection

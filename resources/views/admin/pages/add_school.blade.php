@@ -166,7 +166,7 @@
                           <div class="form-group">
                               <label>School Affiliated with</label>
                               <select class="form-control" name="school_affiliated" style="width: 100%;" >
-                                <option value="BISE">BISE</option>
+                                <option value="BISE">BISE (Rawalpindi)</option>
                                 <option value="FBISE">FBISE</option>
                                 <option value="NO">not Affiliated</option>
                               </select>
