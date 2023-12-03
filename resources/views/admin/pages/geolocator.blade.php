@@ -3,12 +3,12 @@
 @section('styles')
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    {{-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+     crossorigin=""></script> --}}
 @endsection
 
 
@@ -107,6 +107,7 @@
 
 @section('scripts')
         <script src="{{asset('/assets/plugins/select2/js/select2.full.min.js')}}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk0_VOTcgZgNVVcSfX52S8NHpuK4qHniY&libraries=places"></script>
         <script>
               $(function () {
                 //Initialize Select2 Elements
@@ -118,20 +119,124 @@
                 })
                })
 
-               var map = L.map('map').setView([33.6844, 73.0479], 10);
-                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                }).addTo(map);
+              //  var map = L.map('map').setView([33.6844, 73.0479], 10);
+              //               L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              //       maxZoom: 19,
+              //       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              //   }).addTo(map);
 
-                let schools = []; 
-                const currentURL = new URL(window.location.href);
-                let _schoolId = null;
-                let _districtId = null;
-                let _tehsilId = null;
-                let _cityId = null;
+              //   let schools = []; 
+              //   const currentURL = new URL(window.location.href);
+              //   let _schoolId = null;
+              //   let _districtId = null;
+              //   let _tehsilId = null;
+              //   let _cityId = null;
                 
-                let _url = '/admin/geolocator/map/ajax';
+              //   let _url = '/admin/geolocator/map/ajax';
+              //   if (currentURL.searchParams.has('school_id')) {
+              //       _schoolId = currentURL.searchParams.get('school_id');
+              //   }
+              //   if (currentURL.searchParams.has('district_id')) {
+              //     _districtId = currentURL.searchParams.get('district_id');
+              //   }
+              //   if (currentURL.searchParams.has('tehsil_id')) {
+              //     _tehsilId = currentURL.searchParams.get('tehsil_id');
+              //   }
+              //   if (currentURL.searchParams.has('cities_id')) {
+              //     _cityId = currentURL.searchParams.get('cities_id');
+              //   }
+                
+              //   if(_schoolId !== null && _districtId !== null && _tehsilId !== null && _cityId !== null)
+              //   {
+              //     _url = `/admin/geolocator/map/ajax?school_id=${_schoolId}&district_id=${_districtId}&tehsil_id=${_tehsilId}&cities_id=${_cityId}`;
+              //   }
+                
+              //   $.ajax({
+              //       url: _url,
+              //       type: 'GET',
+              //       success: function(data) {
+              //           data.forEach(function(schoolData) {
+              //               var status = parseInt(schoolData.sc_br_status);
+              //               var iconColor;
+
+              //               if (status === 1) {
+              //                   iconColor = 'green';
+              //               } else if (status === 2) {
+              //                   iconColor = 'red';
+              //               } else if (status === 3) {
+              //                   iconColor = 'yellow';
+              //               } else {
+              //                   iconColor = 'blue';
+              //               }
+
+                            
+              //               var customIcon = L.icon({
+              //                   iconUrl: '{{ asset("/assets/dist/img") }}/' + iconColor + '_pin.png',
+              //                   iconSize: [25, 41], 
+              //                   iconAnchor: [12, 41],
+              //               });
+
+              //               var school = {
+              //                   name: schoolData.school_name,
+              //                   city: schoolData.city_name,
+              //                   latlng: [parseFloat(schoolData.latitude), parseFloat(schoolData.longitude)],
+              //                   moreInfoURL: `/admin/school/${schoolData.sc_br_id}`,
+              //                   icon: customIcon 
+              //               };
+
+              //               schools.push(school);
+              //           });
+
+              //           schools.forEach(function(school) {
+              //               var marker = L.marker(school.latlng, { icon: school.icon }).addTo(map);
+
+              //               var popupContent = `
+              //                   <strong>${school.name}</strong><br>
+              //                   <p>${school.city}</p>
+              //                   <a href="${school.moreInfoURL}">Click for More Info</a>
+              //               `;
+
+              //               marker.bindPopup(popupContent);
+              //           });
+              //       }
+              //   });
+
+              //   $('#search_map').click(function(){
+              //     const school_id = $('#schoolDropdown').val();
+              //     const district_id = $('#districtDropdown').val();
+              //     const tehsil_id = $('#tehsilDropdown').val();
+              //     const cities_id = $('#citiesDropdown').val();
+                  
+              //     if (!school_id || !district_id || !tehsil_id || !cities_id) {
+              //       toastr.error("Please select values for all fields");
+              //     } else {
+                    
+              //       currentURL.searchParams.set('school_id', school_id);
+              //       currentURL.searchParams.set('district_id', district_id);
+              //       currentURL.searchParams.set('tehsil_id', tehsil_id);
+              //       currentURL.searchParams.set('cities_id', cities_id);
+
+              //       const updatedURL = currentURL.toString();
+
+              //       window.location.href = updatedURL;
+              //     }
+                  
+              //   })
+
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 12,
+                  center: { lat: 33.5714482, lng: 73.0284069 }
+              });
+
+              // Array to store markers
+              var markers = [];
+              const currentURL = new URL(window.location.href);
+              let _schoolId = null;
+              let _districtId = null;
+              let _tehsilId = null;
+              let _cityId = null;
+
+              let _url = '/admin/geolocator/map/ajax';
                 if (currentURL.searchParams.has('school_id')) {
                     _schoolId = currentURL.searchParams.get('school_id');
                 }
@@ -149,67 +254,56 @@
                 {
                   _url = `/admin/geolocator/map/ajax?school_id=${_schoolId}&district_id=${_districtId}&tehsil_id=${_tehsilId}&cities_id=${_cityId}`;
                 }
-                
-                $.ajax({
-                    url: _url,
-                    type: 'GET',
-                    success: function(data) {
-                        data.forEach(function(schoolData) {
-                            var status = parseInt(schoolData.sc_br_status);
-                            var iconColor;
 
-                            if (status === 1) {
-                                iconColor = 'green';
-                            } else if (status === 2) {
-                                iconColor = 'red';
-                            } else if (status === 3) {
-                                iconColor = 'yellow';
-                            } else {
-                                iconColor = 'blue';
-                            }
+              $.ajax({
+                  url: _url,
+                  type: 'GET',
+                  success: function (data) {
+                      data.forEach(function (schoolData) {
+                          var status = parseInt(schoolData.sc_br_status);
+                          var iconColor;
 
-                            
-                            var customIcon = L.icon({
-                                iconUrl: '{{ asset("/assets/dist/img") }}/' + iconColor + '_pin.png',
-                                iconSize: [25, 41], 
-                                iconAnchor: [12, 41],
-                            });
+                          if (status === 1) {
+                              iconColor = 'green';
+                          } else if (status === 2) {
+                              iconColor = 'red';
+                          } else if (status === 3) {
+                              iconColor = 'yellow';
+                          } else {
+                              iconColor = 'blue';
+                          }
 
-                            var school = {
-                                name: schoolData.school_name,
-                                city: schoolData.city_name,
-                                latlng: [parseFloat(schoolData.latitude), parseFloat(schoolData.longitude)],
-                                moreInfoURL: `/admin/school/${schoolData.sc_br_id}`,
-                                icon: customIcon 
-                            };
+                          var customIcon = '{{ asset("/assets/dist/img") }}/' + iconColor + '_pin.png';
 
-                            schools.push(school);
-                        });
+                          var marker = new google.maps.Marker({
+                              position: { lat: parseFloat(schoolData.latitude), lng: parseFloat(schoolData.longitude) },
+                              map: map,
+                              icon: customIcon
+                          });
 
-                        schools.forEach(function(school) {
-                            var marker = L.marker(school.latlng, { icon: school.icon }).addTo(map);
+                          markers.push(marker);
 
-                            var popupContent = `
-                                <strong>${school.name}</strong><br>
-                                <p>${school.city}</p>
-                                <a href="${school.moreInfoURL}">Click for More Info</a>
-                            `;
+                          var infowindow = new google.maps.InfoWindow({
+                              content: `<strong>${schoolData.school_name}</strong><br>${schoolData.city_name}<br><a href="/admin/school/${schoolData.sc_br_id}">Click for More Info</a>`
+                          });
 
-                            marker.bindPopup(popupContent);
-                        });
-                    }
-                });
+                          marker.addListener('click', function () {
+                              infowindow.open(map, marker);
+                          });
+                      });
+                  }
+              });
 
-                $('#search_map').click(function(){
+              // Your function for handling the search button click event
+              $('#search_map').click(function () {
                   const school_id = $('#schoolDropdown').val();
                   const district_id = $('#districtDropdown').val();
                   const tehsil_id = $('#tehsilDropdown').val();
                   const cities_id = $('#citiesDropdown').val();
-                  
+
                   if (!school_id || !district_id || !tehsil_id || !cities_id) {
-                    toastr.error("Please select values for all fields");
+                      toastr.error("Please select values for all fields");
                   } else {
-                    
                     currentURL.searchParams.set('school_id', school_id);
                     currentURL.searchParams.set('district_id', district_id);
                     currentURL.searchParams.set('tehsil_id', tehsil_id);
@@ -219,8 +313,7 @@
 
                     window.location.href = updatedURL;
                   }
-                  
-                })
+              });
 
                 // * multi select dropdown logic
                 $('#districtDropdown').change(function() {

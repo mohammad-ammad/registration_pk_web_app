@@ -157,6 +157,7 @@
                                   <option value="primary">Primary</option>
                                   <option value="middle">Elementary</option>
                                   <option value="secondary">Secondary</option>
+                                  <option value="higher_secondary">Higher Secondary</option>
                                 </select>
                               </div>
                         </div>
@@ -165,7 +166,7 @@
                           <div class="form-group">
                               <label>School Affiliated with</label>
                               <select class="form-control" name="school_affiliated" style="width: 100%;" >
-                                <option value="BISE">BISE</option>
+                                <option value="BISE">BISE (Rawalpindi)</option>
                                 <option value="FBISE">FBISE</option>
                                 <option value="NO">not Affiliated</option>
                               </select>

@@ -138,16 +138,93 @@ class LocationController extends Controller
 
         return redirect()->route('admin.location.add')->with('success', 'Sub-Area added successfully');
     }
-    public function edit_view($province_id) {
-        $province = Province::where('province_id',$province_id)->get();  
-        return view("admin.pages.edit_location")->with('province', $province)->with('location', $location);
+    //Edit Function
+    public function edit_view($province_id, $district_id, $tehsil_id, $city_id, $area_id, $subarea_id) {
+        // dd($province_id, $district_id, $tehsil_id, $city_id, $area_id);
+        $provinces = Province::all();   
+        $province = Province::find($province_id);
+        $districts = District::all();
+        $district = District::find($district_id);
+        $tehsils = Tehsil::all();
+        $tehsil = Tehsil::find($tehsil_id);
+        $cities = Cities::all();
+        $city = Cities::find($city_id);
+        $areas = Area::all();
+        $area = Area::find($area_id);
+        $subarea  = Subarea::find($subarea_id);
+        return view("admin.pages.edit_location", compact('provinces','province', 'districts', 'district', 'tehsils', 'tehsil', 'cities', 'city', 'areas', 'area', 'subarea'));
     }
-    public function edit_location(Request $request,$id){
-        $location = Subareas::find($id);
-        $location->fk_province_id = $request->input('province');
-        $location->fk_district_id = $request->input('district');
-        $location->fk_tahsil_id = $request->input('tehsil');
-        $location->fk_city_id = $request->input('city');
-        $location->fk_area_id = $request->input('area');
+    //Update Function For Province
+    public function update_province(Request $request, $province_id) {
+        $request->validate([
+            'province_name' => 'required',
+        ]);
+        $province = Province::find($province_id);
+        $province->province_name = $request->province_name;
+        $province->save();
+         return back();
     }
+    //Update Function For District 
+    public function update_district(Request $request, $district_id) {
+        $request->validate([
+            'district_name' => 'required',
+        ]);
+        $district = District::find($district_id);
+        $district->district_name = $request->district_name;
+        // $district->province_name = $request->province_name;
+        $district->save();
+         return back();
+    }
+    //Update Function For Tehsil
+    public function update_tehsil(Request $request, $tehsil_id){
+        $request->validate([
+            'tehsil_name' => 'required',
+        ]);
+        $tehsil = Tehsil::find($tehsil_id);
+        $tehsil->tehsil_name = $request->tehsil_name;
+        $tehsil->save();
+        return back();
+    }
+    //Update Function For City
+    public function update_city(Request $request, $city_id){
+        $request->validate([
+            'city_name' => 'required',
+        ]);
+        $city = Cities::find($city_id);
+        $city->city_name = $request->city_name;
+        $city->save();
+        return back();
+    }
+    //Update Function For Area
+    public function update_area(Request $request, $area_id){
+        $request->validate([
+            'area_name' => 'required',
+        ]);
+        $area = Area::find($area_id);
+        $area->area_name = $request->area_name;
+        $area->save();
+        return back();
+    }
+    //Update Function For Sub Area
+    public function update_subarea(Request $request, $subarea_id){
+        $request->validate([
+            'subarea_name' => 'required',
+        ]);
+        $subarea = Subarea::find($subarea_id);
+        $subarea->subarea_name = $request->subarea_name;
+        $subarea->save();
+        return back();
+    }
+    //Delete Function
+//     public function delete_location($id)
+// {
+//     $location = Subarea::find($id);
+
+//     if ($location) {
+//         $location->delete();
+//         return redirect()->back()->with('success', 'Location deleted successfully');
+//     } else {
+//         return redirect()->back()->with('error', 'Location not found');
+//     }
+// }
 }

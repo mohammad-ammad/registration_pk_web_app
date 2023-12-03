@@ -65,7 +65,7 @@
                         @elseif($school->sc_br_level === 'middle')
                         Elementary 
                         @elseif($school->sc_br_level === 'secondary')
-                        Secondary 
+                        Secondary  
                         @endif
                       </td>
                       <td>

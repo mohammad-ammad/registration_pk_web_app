@@ -27,7 +27,8 @@
       <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-            <form action="{{route('admin.location.update',['id' => $location->id])}}" method="post">
+              <form action="{{ route('admin.location.update.province', $province->province_id) }}" method="post">
+                @method('put');
                   @csrf
                 <div class="card-header">
                   <h3 class="card-title">Edit Province</h3>
@@ -42,7 +43,7 @@
                 <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                     <div class="form-group" style="width:40%; ">
                         <label for="">Province Name</label>
-                        <input type="text" name="province_name" class="form-control" id="" placeholder="Enter Province Name" value="" required>
+                        <input type="text" value="{{$province->province_name}}" name="province_name" class="form-control" id="" placeholder="Enter Province Name" value="" required>
                       </div>
                 </div>
             </form>
@@ -50,30 +51,31 @@
         </div><!-- /.container-fluid -->
       </div>
 
-      {{-- <div class="content">
+      <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{route('admin.location.store_district')}}" method="post">
+                <form action="{{route('admin.location.update.district' , $district->district_id)}}" method="post">
+                
                   @csrf
-                <div class="card-header">
-                  <h3 class="card-title">Add District</h3>
-      
-                  <div class="card-tools">
-                    <button type="submit" class="btn btn-primary">
-                      update
-                    </button>
+                  <div class="card-header">
+                    <h3 class="card-title">Edit Destrict</h3>
+        
+                    <div class="card-tools">
+                      <button type="submit" class="btn btn-primary">
+                         update
+                      </button>
+                    </div>
                   </div>
-                </div>
                 <!-- /.card-header -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Select Province</label>
-                                <select class="form-control select2bs4" name="province_id" id="" style="width: 100%;" required>
+                                <select class="form-control select2bs4" name="province_name" id="" style="width: 100%;" required>
                                     <option value="">Choose Province</option>
-                                        @foreach ($provinces as $province)
-                                            <option value="{{$province->province_id}}">{{$province->province_name}}</option>
+                                        @foreach ($provinces as $provincess)
+                                            <option value="{{$provincess->province_id}}" {{ $provincess->province_id == $provincess->province_id ? 'selected' : '' }}>{{$provincess->province_name}}</option>
                                         @endforeach                  
                                 </select>
                               </div>
@@ -83,7 +85,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">District Name</label>
-                                <input type="text" name="district_name" class="form-control" id="" placeholder="Enter District Name" required>
+                                <input type="text" value="{{$district->district_name}}" name="district_name" class="form-control" id="" placeholder="Enter District Name">
                               </div>
                         </div>
                     </div>
@@ -97,10 +99,10 @@
       <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{route('admin.location.store_tehsil')}}" method="post">
+                <form action="{{route('admin.location.update.tehsil' , $tehsil->tehsil_id)}}" method="post">
                   @csrf
                 <div class="card-header">
-                  <h3 class="card-title">Add Tehsil</h3>
+                  <h3 class="card-title">Edit Tehsil</h3>
       
                   <div class="card-tools">
                     <button type="submit" class="btn btn-primary">
@@ -116,8 +118,8 @@
                                 <label for="">Select District</label>
                                 <select class="form-control select2bs4" name="district_id" id="" style="width: 100%;" required>
                                     <option value="">Choose District</option>
-                                        @foreach ($districts as $district)
-                                            <option value="{{$district->district_id}}">{{$district->district_name}}</option>
+                                        @foreach ($districts as $districtss)
+                                            <option value="{{$districtss->district_id}}" {{ $districtss->province_id == $districtss->province_id ? 'selected' : '' }}>{{$districtss->district_name}}</option>
                                         @endforeach                  
                                 </select>
                               </div>
@@ -127,7 +129,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Tehsil Name</label>
-                                <input type="text" name="tehsil_name" class="form-control" id="" placeholder="Enter Tehsil Name" required>
+                                <input type="text" value="{{$tehsil->tehsil_name}}" name="tehsil_name" class="form-control" id="" >
                               </div>
                         </div>
                     </div>
@@ -138,13 +140,13 @@
         </div><!-- /.container-fluid -->
       </div>
 
-      <div class="content">
+       <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{route('admin.location.store_cities')}}" method="post">
+                <form action="{{route('admin.location.update.city' , $city->city_id)}}" method="post">
                   @csrf
                 <div class="card-header">
-                  <h3 class="card-title">Add City</h3>
+                  <h3 class="card-title">Edit City</h3>
       
                   <div class="card-tools">
                     <button type="submit" class="btn btn-primary">
@@ -158,11 +160,11 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Select Tehsil</label>
-                                <select class="form-control select2bs4" name="tehsil_id" id="" style="width: 100%;" required>
+                                <select class="form-control select2bs4" name="tehsil_id" id="" style="width: 100%;">
                                     <option value="">Choose Tehsil</option>
-                                        @foreach ($tehsils as $tehsil)
-                                            <option value="{{$tehsil->tehsil_id}}">{{$tehsil->tehsil_name}}</option>
-                                        @endforeach                  
+                                    @foreach ($tehsils as $tehsilss)
+                                      <option value="{{$tehsilss->tehsil_id}}" {{ $tehsilss->district_id == $tehsilss->district_id ? 'selected' : '' }}>{{$tehsilss->tehsil_name}}</option>
+                                    @endforeach                   
                                 </select>
                               </div>
                         </div>
@@ -171,7 +173,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">City Name</label>
-                                <input type="text" name="city_name" class="form-control" id="" placeholder="Enter City Name" required>
+                                <input type="text" value="{{$city->city_name}}" name="city_name" class="form-control" id="" >
                               </div>
                         </div>
                     </div>
@@ -182,13 +184,13 @@
         </div><!-- /.container-fluid -->
       </div>
 
-      <div class="content">
+       <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{route('admin.location.store_area')}}" method="post">
+                <form action="{{route('admin.location.update.area', $area->area_id)}}" method="post">
                   @csrf
                 <div class="card-header">
-                  <h3 class="card-title">Add Area</h3>
+                  <h3 class="card-title">Edit Area</h3>
       
                   <div class="card-tools">
                     <button type="submit" class="btn btn-primary">
@@ -204,9 +206,9 @@
                                 <label for="">Select City</label>
                                 <select class="form-control select2bs4" name="city_id" id="" style="width: 100%;" required>
                                     <option value="">Choose City</option>
-                                        @foreach ($cities as $city)
-                                            <option value="{{$city->city_id}}">{{$city->city_name}}</option>
-                                        @endforeach                  
+                                    @foreach ($cities as $citiess)
+                                      <option value="{{$citiess->city_id}}" {{ $citiess->tehsil_id == $citiess->tehsil_id ? 'selected' : '' }}>{{$citiess->city_name}}</option>
+                                    @endforeach                   
                                 </select>
                               </div>
                         </div>
@@ -215,7 +217,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Area Name</label>
-                                <input type="text" name="area_name" class="form-control" id="" placeholder="Enter Area Name" required>
+                                <input type="text" value="{{$area->area_name}}" name="area_name" class="form-control" id="" >
                               </div>
                         </div>
                     </div>
@@ -226,13 +228,13 @@
         </div><!-- /.container-fluid -->
       </div>
 
-      <div class="content">
+       <div class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{route('admin.location.store_subarea')}}" method="post">
+                <form action="{{route('admin.location.update.subarea', $subarea->subarea_id)}}" method="post">
                   @csrf
                 <div class="card-header">
-                  <h3 class="card-title">Add SubArea</h3>
+                  <h3 class="card-title">Edit SubArea</h3>
       
                   <div class="card-tools">
                     <button type="submit" class="btn btn-primary">
@@ -248,9 +250,9 @@
                                 <label for="">Select Area</label>
                                 <select class="form-control select2bs4" name="area_id" id="" style="width: 100%;" required>
                                     <option value="">Choose Area</option>
-                                        @foreach ($areas as $area)
-                                            <option value="{{$area->area_id}}">{{$area->area_name}}</option>
-                                        @endforeach                  
+                                    @foreach ($areas as $areass)
+                                    <option value="{{$areass->area_id}}" {{ $areass->city_id == $areass->city_id ? 'selected' : '' }}>{{$areass->area_name}}</option>
+                                  @endforeach                  
                                 </select>
                               </div>
                         </div>
@@ -259,7 +261,7 @@
                         <div class="card-body" style="display:flex; justify-content:center; align-items: center">
                             <div class="form-group" style="width:100%; ">
                                 <label for="">Sub-Area Name</label>
-                                <input type="text" name="subarea_name" class="form-control" id="" placeholder="Enter Sub-Area Name" required>
+                                <input type="text" value="{{$subarea->subarea_name}}" name="subarea_name" class="form-control" id="" >
                               </div>
                         </div>
                     </div>
@@ -268,7 +270,7 @@
             </form>
               </div>
         </div><!-- /.container-fluid -->
-      </div> --}}
+      </div> 
       
      
   

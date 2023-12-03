@@ -11,11 +11,14 @@ use DB;
 
 class SchoolController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $province = Province::get();
+        //Check if the request is coming from the app
+        if ($request->is('school-app-registration')) {
+            return view('client.pages.school-app-registration')->with('provinces', $province);
+        }
         return view('client.pages.school-registration')->with('provinces', $province);
     }
-
     public function store(Request $request){
         $request->validate([
             'school_name' => 'required',
