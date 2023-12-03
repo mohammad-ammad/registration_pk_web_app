@@ -218,7 +218,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select Province</label>
-                                <select class="form-control select2bs4" id="provinceDropdown" name="province" style="width: 100%;" >
+                                <select class="form-control select2bs4" id="provinceDropdown" name="province" style="width: 100%;" required>
                                   <option value="">Choose Province</option>
                                   @foreach ($provinces as $province)
                                       <option value="{{$province->province_id}}">{{$province->province_name}}</option>
@@ -230,7 +230,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select District</label>
-                                <select class="form-control select2bs4" id="districtDropdown" name="district" style="width: 100%;" >
+                                <select class="form-control select2bs4" id="districtDropdown" name="district" style="width: 100%;" required>
                                 </select>
                               </div>
                         </div>
@@ -238,7 +238,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select Tehsil</label>
-                                <select class="form-control select2bs4" id="tehsilDropdown" name="tehsil" style="width: 100%;" >
+                                <select class="form-control select2bs4" id="tehsilDropdown" name="tehsil" style="width: 100%;" required>
                                 </select>
                               </div>
                         </div>
@@ -246,7 +246,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Select City</label>
-                                <select class="form-control select2bs4" id="citiesDropdown" name="city" style="width: 100%;" >
+                                <select class="form-control select2bs4" id="citiesDropdown" name="city" style="width: 100%;" required>
                                 </select>
                               </div>
                         </div>
