@@ -20,6 +20,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [App\Http\Controllers\Auth\AuthenticationController::class, "index"])->name("auth.index");
     Route::post('/login', [App\Http\Controllers\Auth\AuthenticationController::class, "login"])->name("auth.login");
 
+    Route::get('/school/get/school/ajax', [App\Http\Controllers\Admin\SchoolController::class, "get_all_school_ajax"])->name("admin.school.get_school_ajax");
+    Route::get('/school/get/district/ajax/{province_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_districts_fk_provinces_ajax"])->name("admin.school.get_district_ajax");
+    Route::get('/school/get/tehsil/ajax/{district_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_tehsils_fk_district_ajax"])->name("admin.school.get_tehsil_ajax");
+    Route::get('/school/get/cities/ajax/{tehsil_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_cities_fk_tehsil_ajax"])->name("admin.school.get_cities_ajax");
+
     Route::middleware('auth.custom')->group(function(){
         // * dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, "index"])->name("admin.dashboard");
@@ -46,10 +51,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/school/add', [App\Http\Controllers\Admin\SchoolController::class, "add_view"])->name("admin.school.add");
         Route::post('/school/add', [App\Http\Controllers\Admin\SchoolController::class, "add_school"])->name("admin.school.store");
         Route::post('/school/add/branch', [App\Http\Controllers\Admin\SchoolController::class, "add_school_branch"])->name("admin.school.store_branch");
-        Route::get('/school/get/school/ajax', [App\Http\Controllers\Admin\SchoolController::class, "get_all_school_ajax"])->name("admin.school.get_school_ajax");
-        Route::get('/school/get/district/ajax/{province_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_districts_fk_provinces_ajax"])->name("admin.school.get_district_ajax");
-        Route::get('/school/get/tehsil/ajax/{district_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_tehsils_fk_district_ajax"])->name("admin.school.get_tehsil_ajax");
-        Route::get('/school/get/cities/ajax/{tehsil_id}', [App\Http\Controllers\Admin\SchoolController::class, "get_all_cities_fk_tehsil_ajax"])->name("admin.school.get_cities_ajax");
+
         Route::get('/school/{id}', [App\Http\Controllers\Admin\SchoolController::class, "edit_view"])->name("admin.school.edit");
         Route::post('/school/edit/{id}', [App\Http\Controllers\Admin\SchoolController::class, "edit_school"])->name("admin.school.update");
         Route::get('/school/delete/{id}/{brId}', [App\Http\Controllers\Admin\SchoolController::class, "delete_school"])->name("admin.school.delete");
@@ -89,7 +91,7 @@ Route::get('/teacher-training', function () {
 });
 
 Route::get('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
-Route::get('/school-app-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.school");
+Route::get('/school-app-registration', [App\Http\Controllers\Client\SchoolController::class, "index"])->name("client.mob_school");
 Route::post('/school-registration', [App\Http\Controllers\Client\SchoolController::class, "store"])->name("client.add_school");
 
 // CLEAR CACHE
@@ -104,7 +106,7 @@ Route::get('/artisan/route-cache', function() {
     return "Done - routes cache are cleared";
 });
 Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
-Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
+Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.mob_form');
 Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
-//Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
+Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);

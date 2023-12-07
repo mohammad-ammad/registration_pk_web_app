@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     @include('client.partials.header')
-    @include('client.partials.Scripts')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
@@ -141,8 +140,15 @@
                     <input type="text" name="location_string" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Location String" >
                 </div>
             </div>
+            {{-- <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
+                <div class="flex justify-center items-center">
+                </div>
+                <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">submit</button>
+            </div> --}}
             <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
                 <div class="flex justify-center items-center">
+                    <label for="captcha" class="text-sm font-semibold mx-3">CAPTCHA: What is <span id="firstNumber"></span> + <span id="secondNumber"></span> =</label>
+                    <input type="text" id="captcha" name="captcha" class="outline-none rounded-md w-[70px] h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
                 </div>
                 <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">submit</button>
             </div>
@@ -156,5 +162,132 @@
     @if(session('success'))
         <input type="hidden" id="success-message" value="{{ session('success') }}">
     @endif
+
+    @include('client.partials.Scripts')
+
+    <script src="{{asset('/assets/plugins/select2/js/select2.full.min.js')}}"></script>
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $('.select2').select2()
+
+                //Initialize Select2 Elements
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+
+                $('#provinceDropdown').change(function() {
+                          var selectedProvince = $(this).val();
+                          console.log("province")
+                          if (selectedProvince) {
+                              $.ajax({
+                                  url: '/admin/school/get/district/ajax/' + selectedProvince,
+                                  type: 'GET',
+                                  success: function(data) {
+                                    console.log(data)
+                                      $('#districtDropdown').empty();
+                                      $('#districtDropdown').append($("<option></option>")
+                                              .attr("value", "")
+                                              .text("Choose District"));
+                                      $.each(data, function(index, district) {
+                                          $('#districtDropdown').append($("<option></option>")
+                                              .attr("value", district.district_id)
+                                              .text(district.district_name));
+                                      });
+                                  }
+                              });
+                          } else {
+                              $('#districtDropdown').empty();
+                          }
+                      });
+
+                      $('#districtDropdown').change(function() {
+                          var selectedProvince = $(this).val();
+
+                          if (selectedProvince) {
+                              $.ajax({
+                                  url: '/admin/school/get/tehsil/ajax/' + selectedProvince,
+                                  type: 'GET',
+                                  success: function(data) {
+                                    console.log(data)
+                                      $('#tehsilDropdown').empty();
+                                      $('#tehsilDropdown').append($("<option></option>")
+                                              .attr("value", "")
+                                              .text("Choose Tehsil"));
+                                      $.each(data, function(index, tehsil) {
+                                          $('#tehsilDropdown').append($("<option></option>")
+                                              .attr("value", tehsil.tehsil_id)
+                                              .text(tehsil.tehsil_name));
+                                      });
+                                  }
+                              });
+                          } else {
+                              $('#tehsilDropdown').empty();
+                          }
+                      });
+
+                      $('#tehsilDropdown').change(function() {
+                          var selectedProvince = $(this).val();
+
+                          if (selectedProvince) {
+                              $.ajax({
+                                  url: '/admin/school/get/cities/ajax/' + selectedProvince,
+                                  type: 'GET',
+                                  success: function(data) {
+                                      $('#citiesDropdown').empty();
+                                      $('#citiesDropdown').append($("<option></option>")
+                                              .attr("value", "")
+                                              .text("Choose City"));
+                                      $.each(data, function(index, cities) {
+                                          $('#citiesDropdown').append($("<option></option>")
+                                              .attr("value", cities.city_id)
+                                              .text(cities.city_name));
+                                      });
+                                  }
+                              });
+                          } else {
+                              $('#citiesDropdown').empty();
+                          }
+                      });
+
+                // CAPTCHA question
+                let firstNumber = Math.floor(Math.random() * 10) + 1;
+                let secondNumber = Math.floor(Math.random() * 10) + 1;
+                let correctAnswer = firstNumber + secondNumber;
+                let captchaInput = document.getElementById('captcha');
+                let submitButton = document.getElementById('submitButton');
+                
+                submitButton.setAttribute('disabled', 'disabled');
+                submitButton.style.backgroundColor = 'gray';
+                $('#firstNumber').text(firstNumber);
+                $('#secondNumber').text(secondNumber);
+
+                captchaInput.addEventListener('blur', function() {
+                    let userAnswer = parseInt(captchaInput.value, 10);
+                    if (userAnswer === correctAnswer) {
+                        captchaInput.style.border = '1px solid green';
+                        submitButton.removeAttribute('disabled');
+                        submitButton.style.backgroundColor = '#00C282';
+                    } else {
+                        captchaInput.style.border = '1px solid red';
+                        submitButton.setAttribute('disabled', 'disabled');
+                        submitButton.style.backgroundColor = 'gray';
+                    }
+                });
+
+                captchaInput.addEventListener('input', function() {
+                    let userAnswer = parseInt(captchaInput.value, 10);
+                    if (userAnswer === correctAnswer) {
+                        captchaInput.style.border = '1px solid green';
+                        submitButton.removeAttribute('disabled');
+                        submitButton.style.backgroundColor = '#00C282';
+                    } else {
+                        captchaInput.style.border = '1px solid red';
+                        submitButton.setAttribute('disabled', 'disabled');
+                        submitButton.style.backgroundColor = 'gray';
+                    }
+                });
+            });
+        </script>
 </body>
 </html>

@@ -171,12 +171,13 @@
 
                 $('#provinceDropdown').change(function() {
                           var selectedProvince = $(this).val();
-
+                          console.log("province")
                           if (selectedProvince) {
                               $.ajax({
                                   url: '/admin/school/get/district/ajax/' + selectedProvince,
                                   type: 'GET',
                                   success: function(data) {
+                                    console.log(data)
                                       $('#districtDropdown').empty();
                                       $('#districtDropdown').append($("<option></option>")
                                               .attr("value", "")
@@ -201,6 +202,7 @@
                                   url: '/admin/school/get/tehsil/ajax/' + selectedProvince,
                                   type: 'GET',
                                   success: function(data) {
+                                    console.log(data)
                                       $('#tehsilDropdown').empty();
                                       $('#tehsilDropdown').append($("<option></option>")
                                               .attr("value", "")

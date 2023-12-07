@@ -69,11 +69,11 @@ class SchoolController extends Controller
 
             DB::commit();
 
-            return redirect()->route('client.school')->with('success', 'School registered successfully');
+            return redirect()->back()->with('success', 'School registered successfully');
         }
         else {
             DB::rollBack();
-            return redirect()->route('client.school')->with('error', 'Delete operation failed');
+            return redirect()->back()->with('error', 'Delete operation failed');
         }
 
     }
