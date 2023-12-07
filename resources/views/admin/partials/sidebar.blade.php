@@ -40,6 +40,15 @@
                 Manage School
               </p>
             </a>
+          </li> 
+
+          <li class="nav-item">
+            <a href="{{ route('admin.affiliations') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Manage Affiliations
+              </p>
+            </a>
           </li>
 
           <li class="nav-item">
