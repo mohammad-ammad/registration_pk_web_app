@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\AffiliationController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\AdminAffiliationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,8 +106,19 @@ Route::get('/artisan/route-cache', function() {
     Artisan::call('route:cache');
     return "Done - routes cache are cleared";
 });
+//Client Affiliation
 Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
 Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.mob_form');
 Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
-Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
+
+//Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
+//Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
+
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
+//Admin Affiliation
+Route::get('/admin/affiliations', [AdminAffiliationController::class,"index"])->name('admin.affiliations');
+Route::get('/admin/view-more-affiliations/{affiliation_id}', [AdminAffiliationController::class, 'viewMore'])->name('admin.viewmore.affiliations');
+Route::get('/admin/affiliations/edit/{id}', [AdminAffiliationController::class, 'editAffiliation'])->name('admin.edit.viewmore.affiliations');
+Route::put('/admin/update-affiliation/{id}', [AdminAffiliationController::class, 'updateAffiliation'])->name('admin.update.affiliation');
+Route::delete('/admin/delete-affiliation/{id}', [AdminAffiliationController::class, 'deleteAffiliation'])->name('admin.delete.affiliation');
+
