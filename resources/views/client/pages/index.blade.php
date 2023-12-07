@@ -18,7 +18,7 @@
                         <a href="/about-us" class="px-3 py-2 md:px-5 md:py-3 text-white font-semibold" style="border: 2px solid white">Learn More</a>
                     </div>
                     <div>
-                        <a href="{{route('client.school')}}" class="bg-[#00C282] px-3 py-2 md:px-5 md:py-3 text-white font-semibold" style="border: 2px solid #00C282">Get Registered</a>
+                        <a href="/school-registration" class="bg-[#00C282] px-3 py-2 md:px-5 md:py-3 text-white font-semibold" style="border: 2px solid #00C282">Get Registered</a>
                     </div>
                 </div>
             </div>

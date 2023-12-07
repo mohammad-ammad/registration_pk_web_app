@@ -81,7 +81,7 @@ class AffiliationController extends Controller
             'back_cnic_path' => $backCnicPath,
         ]);
          
-        return back();
+        return redirect()->back()->with('success', 'Submit successfully');
     }
     public function getAffiliationData()
     {
