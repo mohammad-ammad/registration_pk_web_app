@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\Client;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewSchoolRegistered;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Province;
+use App\Models\District;
+use App\Models\Cities;
+use App\Models\Tehsil;
 use App\Models\School;
 use App\Models\SchoolBranches;
 use DB;
@@ -12,12 +17,15 @@ use DB;
 class SchoolController extends Controller
 {
     public function index(Request $request){
-        $province = Province::get();
+        $provinces = Province::all();
+        $districts = District::all();
+        $tehsils = Tehsil::all();
+        $cities = Cities::all();
         //Check if the request is coming from the app
         if ($request->is('school-app-registration')) {
-            return view('client.pages.school-app-registration')->with('provinces', $province);
+            return view('client.pages.school-registration', compact('provinces', 'districts', 'tehsils', 'cities'));
         }
-        return view('client.pages.school-registration')->with('provinces', $province);
+        return view('client.pages.school-registration', compact('provinces', 'districts', 'tehsils', 'cities'));
     }
     public function store(Request $request){
         $request->validate([
@@ -68,6 +76,16 @@ class SchoolController extends Controller
             $branch->save();
 
             DB::commit();
+
+            //all form data in email
+            $emaildata = $request->all();
+            //modify form data in email
+            config(['mail.from.address' => 'hello@example.com']);
+            config(['mail.from.name' => config('app.name')]);
+            Mail::to (['salihumar660@gmail.com'])->send(new \App\Mail\NewSchoolRegistered($emaildata));
+            config(['mail.from.address'=>null]);
+            config(['mail.from.name'=>null]);
+
 
             return redirect()->route('client.school')->with('success', 'School registered successfully');
         }

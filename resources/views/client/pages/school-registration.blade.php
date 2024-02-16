@@ -113,16 +113,28 @@
                 <div>
                     <label for="" class="text-sm font-semibold">Select District</label>
                     <select name="district" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                        <option value="">Choose District</option>
+                        @foreach ($districts as $dist)
+                        <option value="{{$dist->district_id}}">{{$dist->district_name}}</option>
+                        @endforeach
                     </select>
                 </div>   
                 <div>
                     <label for="" class="text-sm font-semibold">Select Tehsil</label>
                     <select name="tehsil" id="tehsilDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                        <option value="">Choose Tehsil</option>
+                        @foreach ($tehsils as $tehsil)
+                        <option value="{{$tehsil->tehsil_id}}">{{$tehsil->tehsil_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div>
                     <label for="" class="text-sm font-semibold">Select City</label>
                     <select name="city" id="citiesDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                        <option value="">Choose City</option>
+                        @foreach ($cities as $city)
+                        <option value="{{$city->city_id}}">{{$city->city_name}}</option>    
+                        @endforeach
                     </select>
                 </div>
                 <div>
