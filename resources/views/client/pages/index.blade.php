@@ -84,7 +84,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge2.jpg')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">Rawalpindi Board Affiliation For Fresh</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/rawalpindi-affiliation-fresh" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
@@ -113,7 +113,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge3.png')}}" class="w-[50px]" alt="school">

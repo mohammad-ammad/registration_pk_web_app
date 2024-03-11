@@ -39,8 +39,8 @@ class AffiliationController extends Controller
         $validatedData = $request->validate([
             'instituteName' => 'required|string',
             'instituteAddress' => 'required|string',
-            'affiliationType' => 'required', 
-            'phoneNumber' => 'required|numeric', 
+            'affiliationType' => 'required',
+            'phoneNumber' => 'required|numeric',
             'email' => 'required|email',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
@@ -52,7 +52,7 @@ class AffiliationController extends Controller
             'tehsil' => 'required|string',
             'district' => 'required|string',
             'province' => 'required|string',
-            'group' => 'required|string', 
+            'group' => 'required|string',
             'frontCnic' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'backCnic' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -80,7 +80,7 @@ class AffiliationController extends Controller
             'front_cnic_path' => $frontCnicPath,
             'back_cnic_path' => $backCnicPath,
         ]);
-         
+
         return back();
     }
     public function getAffiliationData()
@@ -89,4 +89,6 @@ class AffiliationController extends Controller
 
         return response()->json(['affiliationData' => $affiliation]);
     }
+
+
 }
