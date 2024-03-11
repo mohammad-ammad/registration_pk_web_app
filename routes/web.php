@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\AffiliationController;
+use App\Http\Controllers\Client\HygieneController;
 use App\Http\Controllers\Admin\LocationController;
 
 /*
@@ -103,8 +104,12 @@ Route::get('/artisan/route-cache', function() {
     Artisan::call('route:cache');
     return "Done - routes cache are cleared";
 });
+//Affilation Routes
 Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
 Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
 Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
 //Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
+//Hygiene Routes
+Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygiene-app-form');
+Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
