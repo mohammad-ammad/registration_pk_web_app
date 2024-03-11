@@ -29,9 +29,10 @@
                     <li class="py-2 px-4 hover:bg-gray-100"><a href="/#contact">Hygienic Certificate</a></li>
                     <li class="py-2 px-4 hover:bg-gray-100"><a href="/#contact">Building Fitness Certificate</a></li>
                     <li class="py-2 px-4 hover:bg-gray-100"><a href="/affiliation-form">Affiliation-Form</a></li>
+                    <li class="py-2 px-4 hover:bg-gray-100"><a href="/ngo-registration">NGO Registration</a></li>
                 </ul>
-            </li>            
-            
+            </li>
+
             <li>
                 <a href="#contact" class="text-md font-medium">
                     Contact Us

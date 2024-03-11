@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\AffiliationController;
 use App\Http\Controllers\Client\HygieneController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Ngo_RegistrationController;
+use App\Http\Controllers\Rawalpindi_affiliation_freshController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use App\Http\Controllers\Admin\LocationController;
 */
 
 Route::prefix('admin')->group(function () {
-    
+
     Route::get('/login', [App\Http\Controllers\Auth\AuthenticationController::class, "index"])->name("auth.index");
     Route::post('/login', [App\Http\Controllers\Auth\AuthenticationController::class, "login"])->name("auth.login");
 
@@ -74,7 +76,7 @@ Route::prefix('admin')->group(function () {
         // Route::delete('/locations/delete/{id}', [App\Http\Controllers\Admin\LocationController::class, 'delete_location'])->name('admin.location.delete');
 
     });
-    
+
 });
 
 Route::get('/', function () {
@@ -106,10 +108,19 @@ Route::get('/artisan/route-cache', function() {
 });
 //Affilation Routes
 Route::get('/affiliation-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
+Route::get('/ngo-registration', [Ngo_RegistrationController::class, 'ngo_registartion'])->name('ngo_registartion.form');
 Route::get('/affiliation-app-form', [AffiliationController::class, 'showForm'])->name('affiliation.form');
 Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->name('affiliation.submit');
+Route::post('/ngo-registration', [Ngo_RegistrationController::class, 'ngo_registartion_submit'])->name('ngo_registartion.submit');
 //Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
+<<<<<<< HEAD
 //Hygiene Routes
 Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygiene-app-form');
 Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
+=======
+
+// home page affiliation routes
+Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
+Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
+>>>>>>> 4ab0a013122b2c014645a1311a24a34e8c2ccc3c
