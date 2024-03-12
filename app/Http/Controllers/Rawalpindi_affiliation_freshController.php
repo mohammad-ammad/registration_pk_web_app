@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
 use App\Models\RwpAffiliateFormFresh;
+use App\Models\Tehsil;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -11,7 +13,9 @@ use Illuminate\Support\Facades\Session;
 class Rawalpindi_affiliation_freshController extends Controller
 {
     public function rwp_affiliation_fresh(){
-        return view("client.pages.rwp_affiliation_fresh");
+        $tehsils = Tehsil::get();
+        $districts = District::get();
+        return view("client.pages.rwp_affiliation_fresh",compact('tehsils','districts'));
     }
 
 public function rwp_affiliation_fresh_submit(Request $request){

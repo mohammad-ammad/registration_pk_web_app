@@ -23,11 +23,21 @@
             </div>
             <div>
                 <label for="" class="text-sm font-semibold">District:</label>
-                <input type="text" name="district" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter District" required>
+                <!-- <input type="text" name="district" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter District" required> -->
+                <select name="district" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                    @foreach ($districts as $district)
+                            <option value="{{$district->district_name}}">{{$district->district_name}}</option>
+                        @endforeach
+                </select>
             </div>
             <div>
                 <label for="" class="text-sm font-semibold">Tehsil:</label>
-                <input type="text" name="tehsil" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Tehsile" required>
+                <!-- <input type="text" name="tehsil" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Tehsile" required> -->
+                <select name="district" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                    @foreach ($tehsils as $tehsil)
+                            <option value="{{$tehsil->tehsil_name}}">{{$tehsil->tehsil_name}}</option>
+                        @endforeach
+                </select>
             </div>
 
             <div>
