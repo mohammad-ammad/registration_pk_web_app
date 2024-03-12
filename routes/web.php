@@ -117,4 +117,5 @@ Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffi
 // home page affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
-Route::get('/school-registration-renewal',[SchoolRegistrationRenewalController::class,'school_registration_renewal'])->name('school_registration.renewal');
+// school renewal
+Route::get('/school-registration-renewal',[SchoolRegistrationRenewalController::class,'school_registration_renewal'])->name('school_registration_renewal');
