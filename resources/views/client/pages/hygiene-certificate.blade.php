@@ -117,9 +117,9 @@
             </div>
 
          <!-- Submit Button -->
-         <div class="flex flex-col md:flex-row justify-center md:justify-center items-center gap-3 my-3">
+         <div class="flex flex-col md:flex-row justify-center md:justify-end gap-3 my-3">
             <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">Submit</button>
-        </div>        
+        </div>
           </form>
     </div>
 </section>

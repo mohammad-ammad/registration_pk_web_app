@@ -9,7 +9,7 @@
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
         <h1 class="text-2xl md:text-3xl font-semibold my-3">School Registration Renewal </h1>
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('school_registration_renewal.submit')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
             <!--Form Fields-->
@@ -162,4 +162,12 @@
           </form>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+
+
+
+
+
 @endsection

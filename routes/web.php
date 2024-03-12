@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\AffiliationController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\BuildingEvaluationController;
+use App\Http\Controllers\Client\HygieneController;
+use App\Http\Controllers\CollegeRegistrationFreshController;
 use App\Http\Controllers\Ngo_RegistrationController;
 use App\Http\Controllers\Rawalpindi_affiliation_freshController;
 use App\Http\Controllers\SchoolRegistrationRenewalController;
@@ -36,6 +40,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard/master/search/pr/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_pr_ajax"]);
         Route::get('/dashboard/master/search/ds/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ds_ajax"]);
         Route::get('/dashboard/master/search/ts/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ts_ajax"]);
+        // Route::get('/get-school-registration-renewal-info/{id}',[DashboardController::class,'index'])->name('get.school.registration.renewal.info');
 
 
         Route::get('/logout', [App\Http\Controllers\Auth\AuthenticationController::class, "logout"])->name("admin.logout");
@@ -74,6 +79,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/locations/update/area/{area_id}', [App\Http\Controllers\Admin\LocationController::class, 'update_area'])->name("admin.location.update.area");
         Route::post('/locations/update/subarea/{subarea_id}', [App\Http\Controllers\Admin\LocationController::class, 'update_subarea'])->name("admin.location.update.subarea");
         // Route::delete('/locations/delete/{id}', [App\Http\Controllers\Admin\LocationController::class, 'delete_location'])->name('admin.location.delete');
+
+
 
     });
 
@@ -117,5 +124,17 @@ Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffi
 // home page affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
+// hygeine
+Route::get('/home/hygienic-form',[HygieneController::class,'showForm'])->name('hygiene-app-form');
+Route::post('/home/hygienic-form',[HygieneController::class,'store'])->name('hygiene-application-submit');
 // school renewal
 Route::get('/school-registration-renewal',[SchoolRegistrationRenewalController::class,'school_registration_renewal'])->name('school_registration_renewal');
+Route::post('/school-registration-renewal',[SchoolRegistrationRenewalController::class,'school_registration_renewal_submit'])->name('school_registration_renewal.submit');
+
+// building evaluation
+Route::get('/building-evaluation',[BuildingEvaluationController::class,'building_evaluation'])->name('building_evaluation');
+Route::post('/building-evaluation',[BuildingEvaluationController::class,'building_evaluation_submit'])->name('building_evaluation.submit');
+
+// fresh college registration
+Route::get('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration'])->name('college_registration_fresh');
+Route::post('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration_submit'])->name('college_registration.submit');

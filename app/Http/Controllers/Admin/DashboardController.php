@@ -9,10 +9,11 @@ use App\Models\School;
 use App\Models\Tehsil;
 use App\Models\Province;
 use App\Models\District;
+use App\Models\SchoolRegistrationRenewal;
 
 class DashboardController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request ,$id){
         $query = $request->query('query');
         $tehsil_query = $request->query('tehsil');
         $province_query = $request->query('province');
@@ -37,6 +38,8 @@ class DashboardController extends Controller
         $sc_boys_count = DB::table('schoolbranches')->where('sc_br_type','boys')->count('sc_br_id');
         $sc_girls_count = DB::table('schoolbranches')->where('sc_br_type','girls')->count('sc_br_id');
         $sc_co_count = DB::table('schoolbranches')->where('sc_br_type','combined')->count('sc_br_id');
+        $school_registration_renewal = SchoolRegistrationRenewal::count();
+        $data = SchoolRegistrationRenewal::find($id);
 
         $tehsils = Tehsil::where('status',1)->get();
         $provinces = Province::get();
@@ -47,9 +50,9 @@ class DashboardController extends Controller
                 'unregistered' => 2,
                 'underprocess' => 3,
             ];
-        
+
             $val = $statusMap[$query] ?? 1;
-        
+
             $schools = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
                 ->leftjoin('subareas','schoolbranches.fk_subarea_id','subareas.subarea_id')
                 ->leftjoin('areas','schoolbranches.fk_area_id','areas.area_id')
@@ -60,7 +63,7 @@ class DashboardController extends Controller
                 ->take(10)
                 ->get();
         }
-        else 
+        else
         {
             $schools = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
                 ->leftjoin('subareas','schoolbranches.fk_subarea_id','subareas.subarea_id')
@@ -87,7 +90,7 @@ class DashboardController extends Controller
         }
 
 
-        return view('admin.pages.dashboard')
+        return view('admin.pages.dashboard',compact('school_registration_renewal','data'))
         ->with('sc_count',$sc_count)
         ->with('sc_re_count',$sc_re_count)
         ->with('sc_ure_count',$sc_ure_count)
@@ -145,11 +148,11 @@ class DashboardController extends Controller
         $sc_status = $request->query('sc_status');
         $sc_level = $request->query('sc_level');
         $sc_af = $request->query('sc_af');
-        
+
         $query = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
         ->leftjoin('institutestatus','institutestatus.status_id','schoolbranches.sc_br_status')
         ->orderBy('schoolbranches.sc_br_id','desc');
-        
+
         if($sr !== null){
             $query->where('schoolbranches.sc_br_emi_no', $sr);
         }
@@ -157,15 +160,15 @@ class DashboardController extends Controller
         if ($sc_status !== null) {
             $query->where('schoolbranches.sc_br_status', $sc_status);
         }
-    
+
         if ($sc_level !== null) {
             $query->where('schoolbranches.sc_br_level', $sc_level);
         }
-    
+
         if ($sc_af !== null) {
             $query->where('schoolbranches.sc_br_affiliated', $sc_af);
         }
-    
+
         $schools = $query->get();
 
         return response()->json($schools);
@@ -182,11 +185,11 @@ class DashboardController extends Controller
         $sc_status = $request->query('sc_status');
         $sc_level = $request->query('sc_level');
         $sc_af = $request->query('sc_af');
-        
+
         $query = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
         ->leftjoin('institutestatus','institutestatus.status_id','schoolbranches.sc_br_status')
         ->orderBy('schoolbranches.sc_br_id','desc');
-        
+
         if($pr !== null){
             $query->where('schoolbranches.fk_province_id', $pr);
         }
@@ -194,15 +197,15 @@ class DashboardController extends Controller
         if ($sc_status !== null) {
             $query->where('schoolbranches.sc_br_status', $sc_status);
         }
-    
+
         if ($sc_level !== null) {
             $query->where('schoolbranches.sc_br_level', $sc_level);
         }
-    
+
         if ($sc_af !== null) {
             $query->where('schoolbranches.sc_br_affiliated', $sc_af);
         }
-    
+
         $schools = $query->get();
 
         return response()->json($schools);
@@ -223,11 +226,11 @@ class DashboardController extends Controller
         $sc_status = $request->query('sc_status');
         $sc_level = $request->query('sc_level');
         $sc_af = $request->query('sc_af');
-        
+
         $query = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
         ->leftjoin('institutestatus','institutestatus.status_id','schoolbranches.sc_br_status')
         ->orderBy('schoolbranches.sc_br_id','desc');
-        
+
         if($ds !== null){
             $query->where('schoolbranches.fk_district_id', $ds);
         }
@@ -235,15 +238,15 @@ class DashboardController extends Controller
         if ($sc_status !== null) {
             $query->where('schoolbranches.sc_br_status', $sc_status);
         }
-    
+
         if ($sc_level !== null) {
             $query->where('schoolbranches.sc_br_level', $sc_level);
         }
-    
+
         if ($sc_af !== null) {
             $query->where('schoolbranches.sc_br_affiliated', $sc_af);
         }
-    
+
         $schools = $query->get();
 
         return response()->json($schools);
@@ -254,11 +257,11 @@ class DashboardController extends Controller
         $sc_status = $request->query('sc_status');
         $sc_level = $request->query('sc_level');
         $sc_af = $request->query('sc_af');
-        
+
         $query = School::join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
         ->leftjoin('institutestatus','institutestatus.status_id','schoolbranches.sc_br_status')
         ->orderBy('schoolbranches.sc_br_id','desc');
-        
+
         if($ts !== null){
             $query->where('schoolbranches.	fk_tehsil_id', $ts);
         }
@@ -266,15 +269,15 @@ class DashboardController extends Controller
         if ($sc_status !== null) {
             $query->where('schoolbranches.sc_br_status', $sc_status);
         }
-    
+
         if ($sc_level !== null) {
             $query->where('schoolbranches.sc_br_level', $sc_level);
         }
-    
+
         if ($sc_af !== null) {
             $query->where('schoolbranches.sc_br_affiliated', $sc_af);
         }
-    
+
         $schools = $query->get();
 
         return response()->json($schools);

@@ -315,6 +315,25 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{$school_registration_renewal}}</h3>
+
+                            <p>School registration Renewal</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-list-alt"></i>
+                        </div>
+                        <a href="javascript:void(0)"
+                        data-type="CO"
+                        data-header="School registration Renewal" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- /.row -->
@@ -463,7 +482,7 @@
         <!-- /.modal-dialog -->
     </div>
 
-    
+
       <!-- /.modal-dialog -->
   </div>
 
@@ -628,7 +647,7 @@
                 if(data_type === "CO"){
                   schoolTypeList("Combined")
                 }
-                
+
             });
 
             function SchoolLevelList(level, heading) {
@@ -658,7 +677,7 @@
                             <td>
                               <a href="/admin/school/${school.sc_br_id}" class="btn btn-primary btn-sm mr-1">
                                 <i class="fas fa-eye"></i>
-                              </a>  
+                              </a>
                             </td>
                           </tr>`;
                       });
@@ -708,7 +727,7 @@
                       var searchValue = $("#search_by_sr_no").val();
                       filterTable(searchValue);
                     });
-                    
+
                 } else {
                   // Handle the case where no data is received
                   $(".modal-body").html('<p>No data available</p>');
@@ -749,7 +768,7 @@
                             <td>
                               <a href="/admin/school/${school.sc_br_id}" class="btn btn-primary btn-sm mr-1">
                                 <i class="fas fa-eye"></i>
-                              </a>  
+                              </a>
                             </td>
                           </tr>`;
                       });
@@ -799,7 +818,7 @@
                       var searchValue = $("#search_by_sr_no").val();
                       filterTable(searchValue);
                     });
-                    
+
                 } else {
                   // Handle the case where no data is received
                   $(".modal-body").html('<p>No data available</p>');
@@ -840,7 +859,7 @@
                             <td>
                               <a href="/admin/school/${school.sc_br_id}" class="btn btn-primary btn-sm mr-1">
                                 <i class="fas fa-eye"></i>
-                              </a>  
+                              </a>
                             </td>
                           </tr>`;
                       });
@@ -890,7 +909,7 @@
                       var searchValue = $("#search_by_sr_no").val();
                       filterTable(searchValue);
                     });
-                    
+
                 } else {
                   // Handle the case where no data is received
                   $(".modal-body").html('<p>No data available</p>');

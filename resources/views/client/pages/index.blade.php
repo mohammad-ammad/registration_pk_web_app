@@ -118,7 +118,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge3.png')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">College Registration For Fresh</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/college-registration-fresh" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
@@ -132,7 +132,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge4.png')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">Hygienic Certificate</h2>
-                        <a href="{{route('hygeinic-app-form')}}" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="{{route('hygiene-app-form')}}" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
@@ -142,7 +142,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge5.png')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">Building Fitness Certificate</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/building-evaluation" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
