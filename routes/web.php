@@ -114,13 +114,10 @@ Route::post('/affiliation-form', [AffiliationController::class, 'submitForm'])->
 Route::post('/ngo-registration', [Ngo_RegistrationController::class, 'ngo_registartion_submit'])->name('ngo_registartion.submit');
 //Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
-<<<<<<< HEAD
 //Hygiene Routes
-Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygiene-app-form');
+Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygeinic-app-form');
 Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
-=======
 
 // home page affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
->>>>>>> 4ab0a013122b2c014645a1311a24a34e8c2ccc3c
