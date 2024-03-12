@@ -121,9 +121,16 @@ Route::post('/ngo-registration', [Ngo_RegistrationController::class, 'ngo_regist
 //Route::get('/affiliation-form', [AffiliationController::class, 'showForm']);
 Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffiliationData']);
 
+
+//Hygiene Routes
+Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygeinic-app-form');
+Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
+
+
 // home page affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
+
 // hygeine
 Route::get('/home/hygienic-form',[HygieneController::class,'showForm'])->name('hygiene-app-form');
 Route::post('/home/hygienic-form',[HygieneController::class,'store'])->name('hygiene-application-submit');
@@ -138,3 +145,4 @@ Route::post('/building-evaluation',[BuildingEvaluationController::class,'buildin
 // fresh college registration
 Route::get('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration'])->name('college_registration_fresh');
 Route::post('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration_submit'])->name('college_registration.submit');
+
