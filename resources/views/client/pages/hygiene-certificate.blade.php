@@ -2,11 +2,15 @@
 @section('styles')
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @endsection
 @section('content')
 <section class="pt-44 px-4 md:px-10">
+
+
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
-        <h1 class="text-2xl md:text-3xl font-semibold my-3">Hygiene Appliation Form </h1>
+        <h1 class="text-2xl md:text-3xl font-semibold my-3">Hygiene Application Form </h1>
 
         <form action="{{route('hygiene-application-submit')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -66,12 +70,13 @@
             </div>
 
             <div>
-                {{-- <label for="school_building" class="text-sm font-semibold">School Building:</label>
-                <select name="school_building" id="school_building" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                 <label for="school_building" class="text-sm font-semibold">School Building:</label>
+                <select name="school_building" id="school_building" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
                     <option value="2">Residential</option>
                     <option value="1">Commercial</option>
-                </select> --}}
+                </select>
             </div>
+
                 <div>
                     <label for="" class="text-sm font-semibold">Number Of Blocks:</label>
                     <input type="number" name="number_of_blocks" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Total Blocks" required>
@@ -114,7 +119,20 @@
                     <label for="" class="text-sm font-semibold">Remarks:</label>
                     <input type="text" name="remarks" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Remarks" required>
                 </div>
+
+                <div class="">
+            @php
+        $num1 = rand(1, 10);
+        $num2 = rand(1, 10);
+        $correctAnswer = $num1 + $num2;
+    @endphp
+    <label>What is the sum of {{ $num1 }} + {{ $num2 }}?</label>
+    <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
+    <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
+                </div>
             </div>
+
+
 
          <!-- Submit Button -->
          <div class="flex flex-col md:flex-row justify-center md:justify-end gap-3 my-3">
@@ -123,5 +141,45 @@
           </form>
     </div>
 </section>
+
 @endsection
+
+@section('scripts')
+
+    @if (Session::has('message'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+    toastr.success("{{Session::get('message')}}")
+
+    </script>
+
+    @endif
+    @if (Session::has('error'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+
+    toastr.error("{{Session::get('error')}}")
+    </script>
+
+@endif
+
+@if (Session::has('captcha_answer'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+
+    toastr.error("{{Session::get('captcha_answer')}}")
+    </script>
+
+@endif
+@endsection
+
 

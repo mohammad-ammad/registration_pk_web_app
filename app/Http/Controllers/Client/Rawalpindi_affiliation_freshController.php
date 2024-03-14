@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Models\District;
-use App\Models\RwpAffiliateFormFresh;
 use App\Models\Tehsil;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Support\Facades\Validator;
+use App\Models\District;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\RwpAffiliateFormFresh;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class Rawalpindi_affiliation_freshController extends Controller
 {
@@ -53,6 +55,8 @@ public function rwp_affiliation_fresh_submit(Request $request){
         'registered_body' => 'required|string',
         'institute_run' => 'required|string',
         'sufficient_budget' => 'required|string',
+        'captcha_answer' => 'required|numeric',
+        'correct_answer' => 'required|numeric',
     ];
 
  // Validate the request
@@ -61,21 +65,23 @@ public function rwp_affiliation_fresh_submit(Request $request){
  // Check if validation fails
  if ($validator->fails()) {
 
-     Session::flash('danger', 'Validation failed. Please check your inputs.');
-     return redirect()->back()->withErrors($validator)->withInput();
+    return redirect()->back()->with('error', "Validation Failed Please Check your Input");
+
  }
+
+ // CAPTCHA validation: Check if the user's answer matches the correct answer
+if ($request->input('captcha_answer') != $request->input('correct_answer')) {
+    return redirect()->back()->with('captcha_answer' ,'Incorrect Captcha answer. Please try again.');
+}
 
 
  try {
      RwpAffiliateFormFresh::create($request->all());
-     Session::flash('success');
-
-
-     return redirect()->back();
+     return redirect()->back()->with('message', "Record Added Successfully");
  } catch (\Exception $e) {
 
-     Session::flash('danger');
-     return redirect()->back();
+
+    return redirect()->back()->with('error', "Please Try Again");
  }
 
 

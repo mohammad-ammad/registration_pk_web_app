@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Models\NGO_Registartion;
 use Illuminate\Http\Request;
+use App\Models\NGO_Registartion;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
 class Ngo_RegistrationController extends Controller
@@ -38,9 +39,7 @@ class Ngo_RegistrationController extends Controller
             'president_domicile' =>  $president_domicile,
             'establishing_date' => $validatedData['establishing_date'],
            ]);
-            // Set success message in the session
-    Session::flash('success', 'NGO registration submitted successfully!');
-           // Redirect back with success message
-         return redirect()->back();
+
+           return redirect()->back()->with('message', "Record Added Successfully");
 }
 }

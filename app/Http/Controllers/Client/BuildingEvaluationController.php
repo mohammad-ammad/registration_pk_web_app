@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use App\Models\BuildingData;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Session;
-
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class BuildingEvaluationController extends Controller
 {
@@ -52,28 +53,31 @@ class BuildingEvaluationController extends Controller
             'stairs_type' => 'required|string',
             'grill_type' => 'required|string',
             'play_area' => 'required|string',
+            'captcha_answer' => 'required|numeric',
+            'correct_answer' => 'required|numeric',
         ];
  // Validate the request
  $validator = Validator::make($request->all(), $rules);
 // Check if validation fails
 if ($validator->fails()) {
-
-    Session::flash('danger', 'Validation failed. Please check your inputs.');
-    return redirect()->back()->withErrors($validator)->withInput();
+    return redirect()->back()->with('error', " Validation Failed Please Try Again");
 }
 
 
+    // CAPTCHA validation: Check if the user's answer matches the correct answer
+    if ($request->input('captcha_answer') != $request->input('correct_answer')) {
+        return redirect()->back()->with('captcha_answer' , 'Incorrect Captcha answer. Please try again.');
+    }
+
 try {
     BuildingData::create($request->all());
-   // Flash success message in the session
-   Session::flash('success', 'Building data submitted successfully.');
+    return redirect()->back()->with('message', "Record Added Successfully");
 
 
-    return redirect()->back();
+
 } catch (\Exception $e) {
 
-    Session::flash('danger');
-    return redirect()->back();
+    return redirect()->back()->with('error', "Please Try Again");
 }
 }
 }

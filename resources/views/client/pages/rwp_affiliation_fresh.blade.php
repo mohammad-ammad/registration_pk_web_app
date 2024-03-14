@@ -2,6 +2,8 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
 <link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @endsection
 @section('content')
 <section class="pt-44 px-4 md:px-10">
@@ -32,13 +34,19 @@
             </div>
             <div>
                 <label for="" class="text-sm font-semibold">Tehsil:</label>
-                <!-- <input type="text" name="tehsil" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Tehsile" required> -->
-                <select name="district" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+
+                <select name="tehsil" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
                     @foreach ($tehsils as $tehsil)
                             <option value="{{$tehsil->tehsil_name}}">{{$tehsil->tehsil_name}}</option>
                         @endforeach
                 </select>
             </div>
+
+
+
+
+
+
 
             <div>
                 <label for="" class="text-sm font-semibold">School Registartion No:</label>
@@ -206,6 +214,17 @@
                 </select>
             </div>
 
+            <div class="flex justify-center items-center">
+            @php
+        $num1 = rand(1, 10);
+        $num2 = rand(1, 10);
+        $correctAnswer = $num1 + $num2; // Calculate the correct answer
+    @endphp
+    <label>What is the sum of {{ $num1 }} + {{ $num2 }}?</label>
+    <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
+    <input type="text" name="captcha_answer" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
+                </div>
+
             <!-- Submit Button -->
 
             <div class="gap-3 my-3">
@@ -215,4 +234,42 @@
     </form>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+    @if (Session::has('message'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+    toastr.success("{{Session::get('message')}}")
+
+    </script>
+
+    @endif
+
+    @if (Session::has('error'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+
+    toastr.error("{{Session::get('error')}}")
+    </script>
+
+@endif
+
+    @if (Session::has('captcha_answer'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+
+    toastr.error("{{Session::get('captcha_answer')}}")
+    </script>
+
+@endif
 @endsection

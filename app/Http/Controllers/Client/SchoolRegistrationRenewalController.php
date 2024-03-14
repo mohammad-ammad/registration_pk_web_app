@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Models\SchoolRegistrationRenewal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use App\Models\SchoolRegistrationRenewal;
+use Illuminate\Support\Facades\Validator;
 
 class SchoolRegistrationRenewalController extends Controller
 {
@@ -43,6 +44,8 @@ class SchoolRegistrationRenewalController extends Controller
         'girls' => 'required|string',
         'totalstudents' => 'required|string',
         'expiredelicense' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'captcha_answer' => 'required|numeric',
+        'correct_answer' => 'required|numeric',
     ];
 
 
@@ -51,26 +54,23 @@ class SchoolRegistrationRenewalController extends Controller
 
     if ($validator->fails()) {
 
-        Session::flash('danger');
-
-
-        return redirect()->back()->withErrors($validator)->withInput();
+        return redirect()->back()->with('error', "Validation Failed Please Try Again");
     }
 
-    // If validation passes, insert the data into the database
+    // CAPTCHA validation: Check if the user's answer matches the correct answer
+if ($request->input('captcha_answer') != $request->input('correct_answer')) {
+    return redirect()->back()->with('captcha_answer' , 'Incorrect Captcha answer. Please try again.');
+}
+
+
     try {
         $expiredelicense = $request->file('expiredelicense')->store('expiredelicense', 'public');
 
         SchoolRegistrationRenewal::create(array_merge($request->all(), ['expiredelicense' => $expiredelicense]));
 
-        // Flash success message in the session
-        Session::flash('success');
-
-        // Redirect back with success message
-        return redirect()->back();
+        return redirect()->back()->with('message', "Record Added Successfully");
     } catch (\Exception $e) {
-        Session::flash('danger');
-        return redirect()->back();
+        return redirect()->back()->with('error', "Please Try Again");
     }
     }
 }

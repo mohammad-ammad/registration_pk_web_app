@@ -4,12 +4,12 @@ use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\AffiliationController;
 use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\BuildingEvaluationController;
+use App\Http\Controllers\Client\BuildingEvaluationController;
 use App\Http\Controllers\Client\HygieneController;
-use App\Http\Controllers\CollegeRegistrationFreshController;
-use App\Http\Controllers\Ngo_RegistrationController;
-use App\Http\Controllers\Rawalpindi_affiliation_freshController;
-use App\Http\Controllers\SchoolRegistrationRenewalController;
+use App\Http\Controllers\Client\CollegeRegistrationFreshController;
+use App\Http\Controllers\Client\Ngo_RegistrationController;
+use App\Http\Controllers\Client\Rawalpindi_affiliation_freshController;
+use App\Http\Controllers\Client\SchoolRegistrationRenewalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,13 +123,15 @@ Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffi
 
 
 //Hygiene Routes
-Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygeinic-app-form');
-Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
+// Route::get('/home/hygienic-form', [HygieneController::class, 'showForm'])->name('hygeinic-app-form');
+// Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
 
 
 // home page affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
+
+
 
 // hygeine
 Route::get('/home/hygienic-form',[HygieneController::class,'showForm'])->name('hygiene-app-form');

@@ -2,7 +2,9 @@
 @section('styles')
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-@endsection
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    @endsection
 @section('content')
 <section class="pt-44 px-4 md:px-10">
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
@@ -66,4 +68,29 @@
           </form>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+
+    @if (Session::has('message'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+    toastr.success("{{Session::get('message')}}")
+    </script>
+
+@endif
+    @if (Session::has('error'))
+    <script>
+        toastr.options = {
+            "progressBar":true,
+            "closeButton":true,
+        }
+
+    toastr.error("{{Session::get('error')}}")
+    </script>
+
+@endif
 @endsection
