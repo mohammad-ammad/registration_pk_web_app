@@ -30,15 +30,15 @@
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-  
+
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
-          
+
             <div class="card card-default">
                 <div class="card-header">
                   <h3 class="card-title">No. of schools ({{$sc_count}})</h3>
-      
+
                   <div class="card-tools">
                     <a href="{{route("admin.geolocator")}}" class="btn btn-danger">Reset</a>
                     <button type="button" id="search_map" class="btn btn-primary">Search</button>
@@ -75,7 +75,7 @@
                         <div class="form-group">
                           <label>Select Tehsil</label>
                           <select class="form-control select2bs4" id="tehsilDropdown" style="width: 100%;">
-                            
+
                           </select>
                         </div>
                       </div>
@@ -87,7 +87,7 @@
                           </select>
                         </div>
                       </div>
-                    
+
                   </div>
                   <!-- /.row -->
                 </div>
@@ -125,13 +125,13 @@
               //       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               //   }).addTo(map);
 
-              //   let schools = []; 
+              //   let schools = [];
               //   const currentURL = new URL(window.location.href);
               //   let _schoolId = null;
               //   let _districtId = null;
               //   let _tehsilId = null;
               //   let _cityId = null;
-                
+
               //   let _url = '/admin/geolocator/map/ajax';
               //   if (currentURL.searchParams.has('school_id')) {
               //       _schoolId = currentURL.searchParams.get('school_id');
@@ -145,12 +145,12 @@
               //   if (currentURL.searchParams.has('cities_id')) {
               //     _cityId = currentURL.searchParams.get('cities_id');
               //   }
-                
+
               //   if(_schoolId !== null && _districtId !== null && _tehsilId !== null && _cityId !== null)
               //   {
               //     _url = `/admin/geolocator/map/ajax?school_id=${_schoolId}&district_id=${_districtId}&tehsil_id=${_tehsilId}&cities_id=${_cityId}`;
               //   }
-                
+
               //   $.ajax({
               //       url: _url,
               //       type: 'GET',
@@ -169,10 +169,10 @@
               //                   iconColor = 'blue';
               //               }
 
-                            
+
               //               var customIcon = L.icon({
               //                   iconUrl: '{{ asset("/assets/dist/img") }}/' + iconColor + '_pin.png',
-              //                   iconSize: [25, 41], 
+              //                   iconSize: [25, 41],
               //                   iconAnchor: [12, 41],
               //               });
 
@@ -181,7 +181,7 @@
               //                   city: schoolData.city_name,
               //                   latlng: [parseFloat(schoolData.latitude), parseFloat(schoolData.longitude)],
               //                   moreInfoURL: `/admin/school/${schoolData.sc_br_id}`,
-              //                   icon: customIcon 
+              //                   icon: customIcon
               //               };
 
               //               schools.push(school);
@@ -206,11 +206,11 @@
               //     const district_id = $('#districtDropdown').val();
               //     const tehsil_id = $('#tehsilDropdown').val();
               //     const cities_id = $('#citiesDropdown').val();
-                  
+
               //     if (!school_id || !district_id || !tehsil_id || !cities_id) {
               //       toastr.error("Please select values for all fields");
               //     } else {
-                    
+
               //       currentURL.searchParams.set('school_id', school_id);
               //       currentURL.searchParams.set('district_id', district_id);
               //       currentURL.searchParams.set('tehsil_id', tehsil_id);
@@ -220,7 +220,7 @@
 
               //       window.location.href = updatedURL;
               //     }
-                  
+
               //   })
 
               var map = new google.maps.Map(document.getElementById('map'), {
@@ -249,7 +249,7 @@
                 if (currentURL.searchParams.has('cities_id')) {
                   _cityId = currentURL.searchParams.get('cities_id');
                 }
-                
+
                 if(_schoolId !== null && _districtId !== null && _tehsilId !== null && _cityId !== null)
                 {
                   _url = `/admin/geolocator/map/ajax?school_id=${_schoolId}&district_id=${_districtId}&tehsil_id=${_tehsilId}&cities_id=${_cityId}`;

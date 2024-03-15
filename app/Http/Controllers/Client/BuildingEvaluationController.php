@@ -6,6 +6,7 @@ use App\Models\BuildingData;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -71,6 +72,13 @@ if ($validator->fails()) {
 
 try {
     BuildingData::create($request->all());
+            //all form data in email
+            $emaildata = $request->all();
+            config(['mail.from.address' => 'hello@example.com']);
+            config(['mail.from.name' => config('app.name')]);
+            Mail::to (['test@gmail.com'])->send(new \App\Mail\Building_Evaluation_Registered($emaildata));
+            config(['mail.from.address'=>null]);
+            config(['mail.from.name'=>null]);
     return redirect()->back()->with('message', "Record Added Successfully");
 
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\RwpAffiliateFormFresh;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
@@ -75,12 +76,21 @@ if ($request->input('captcha_answer') != $request->input('correct_answer')) {
 }
 
 
+
+
+
+
  try {
      RwpAffiliateFormFresh::create($request->all());
+          //all form data in email
+          $emaildata = $request->all();
+          config(['mail.from.address' => 'hello@example.com']);
+          config(['mail.from.name' => config('app.name')]);
+          Mail::to (['test@gmail.com'])->send(new \App\Mail\Rawalpindi_affiliation($emaildata));
+          config(['mail.from.address'=>null]);
+          config(['mail.from.name'=>null]);
      return redirect()->back()->with('message', "Record Added Successfully");
  } catch (\Exception $e) {
-
-
     return redirect()->back()->with('error', "Please Try Again");
  }
 

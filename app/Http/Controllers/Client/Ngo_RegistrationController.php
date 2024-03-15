@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Models\NGO_Registartion;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class Ngo_RegistrationController extends Controller
@@ -26,8 +27,9 @@ class Ngo_RegistrationController extends Controller
                'president_domicile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                'establishing_date'=> 'required|date',
            ]);
-           $president_domicile = $request->file('president_domicile')->store('domicile', 'public');
 
+           $president_domicile = $request->file('president_domicile')->store('domicile', 'public');
+           try{
            $ngo_registration = NGO_Registartion::create([
             'president_name' => $validatedData['presidentName'],
             'president_cnic' => $validatedData['presidentCnic'],
@@ -40,6 +42,18 @@ class Ngo_RegistrationController extends Controller
             'establishing_date' => $validatedData['establishing_date'],
            ]);
 
-           return redirect()->back()->with('message', "Record Added Successfully");
+               $emaildata = $validatedData;
+               config(['mail.from.address' => 'hello@example.com']);
+               config(['mail.from.name' => config('app.name')]);
+               Mail::to (['shamk5445@gmail.com'])->send(new \App\Mail\Ngo_Registration($emaildata));
+               config(['mail.from.address'=>null]);
+               config(['mail.from.name'=>null]);
+
+               return redirect()->back()->with('message', "Record Added Successfully");
+
+           }
+           catch(\Exception $e){
+            return redirect()->back()->with('error', "Please Try Again");
+           }
 }
 }

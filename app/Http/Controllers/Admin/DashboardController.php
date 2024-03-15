@@ -13,7 +13,7 @@ use App\Models\SchoolRegistrationRenewal;
 
 class DashboardController extends Controller
 {
-    public function index(Request $request ,$id){
+    public function index(Request $request ){
         $query = $request->query('query');
         $tehsil_query = $request->query('tehsil');
         $province_query = $request->query('province');
@@ -39,7 +39,7 @@ class DashboardController extends Controller
         $sc_girls_count = DB::table('schoolbranches')->where('sc_br_type','girls')->count('sc_br_id');
         $sc_co_count = DB::table('schoolbranches')->where('sc_br_type','combined')->count('sc_br_id');
         $school_registration_renewal = SchoolRegistrationRenewal::count();
-        $data = SchoolRegistrationRenewal::find($id);
+
 
         $tehsils = Tehsil::where('status',1)->get();
         $provinces = Province::get();
@@ -90,7 +90,7 @@ class DashboardController extends Controller
         }
 
 
-        return view('admin.pages.dashboard',compact('school_registration_renewal','data'))
+        return view('admin.pages.dashboard',compact('school_registration_renewal'))
         ->with('sc_count',$sc_count)
         ->with('sc_re_count',$sc_re_count)
         ->with('sc_ure_count',$sc_ure_count)

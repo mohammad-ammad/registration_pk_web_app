@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Client;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -48,6 +49,18 @@ class HygieneController extends Controller
         }
 
         HygieneApplication::create($validatedData);
+
+
+             $emaildata = $validatedData;
+             config(['mail.from.address' => 'hello@example.com']);
+             config(['mail.from.name' => config('app.name')]);
+             Mail::to (['shamk5445@gmail.com'])->send(new \App\Mail\HygieneRegistered($emaildata));
+             config(['mail.from.address'=>null]);
+             config(['mail.from.name'=>null]);
+
+
+
+
 
 
         return redirect()->back()->with('message','Hygiene application submitted successfully!');

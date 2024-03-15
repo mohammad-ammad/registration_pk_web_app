@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\SchoolRegistrationRenewal;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class SchoolRegistrationRenewalController extends Controller
@@ -67,7 +68,13 @@ if ($request->input('captcha_answer') != $request->input('correct_answer')) {
         $expiredelicense = $request->file('expiredelicense')->store('expiredelicense', 'public');
 
         SchoolRegistrationRenewal::create(array_merge($request->all(), ['expiredelicense' => $expiredelicense]));
-
+             //all form data in email
+             $emaildata = $request->all();
+             config(['mail.from.address' => 'hello@example.com']);
+             config(['mail.from.name' => config('app.name')]);
+             Mail::to (['test@gmail.com'])->send(new \App\Mail\School_Registration_Renewal($emaildata));
+             config(['mail.from.address'=>null]);
+             config(['mail.from.name'=>null]);
         return redirect()->back()->with('message', "Record Added Successfully");
     } catch (\Exception $e) {
         return redirect()->back()->with('error', "Please Try Again");

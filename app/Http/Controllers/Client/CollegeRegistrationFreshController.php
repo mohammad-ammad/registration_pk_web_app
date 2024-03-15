@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\CollegeRegistrationFresh;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CollegeRegistrationFreshController extends Controller
@@ -96,6 +97,7 @@ class CollegeRegistrationFreshController extends Controller
         return redirect()->back()->with('captcha_answer' , 'Incorrect Captcha answer. Please try again.');
     }
 
+
         try {
 
         $labs = implode(',', $request->input('labs', []));
@@ -112,6 +114,14 @@ class CollegeRegistrationFreshController extends Controller
                 'building_fitness_certificate' => $building_fitness_certificate,
                 'map_college_building' => $map_college_building,
             ]));
+
+            $emaildata = $request->all();
+            config(['mail.from.address' => 'hello@example.com']);
+            config(['mail.from.name' => config('app.name')]);
+            Mail::to (['test@gmail.com'])->send(new \App\Mail\College_Registration_Fresh($emaildata));
+            config(['mail.from.address'=>null]);
+            config(['mail.from.name'=>null]);
+
 
                // Log success message for debugging
                 Log::info('Record created successfully:', $registration->toArray());

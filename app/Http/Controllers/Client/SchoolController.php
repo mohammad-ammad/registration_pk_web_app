@@ -47,7 +47,7 @@ class SchoolController extends Controller
 
             $branch = new SchoolBranches();
             $branch->fk_school_id = $school_id;
-            $branch->sc_br_name = $request->branch_name; 
+            $branch->sc_br_name = $request->branch_name;
             $branch->sc_br_address = $request->school_address;
             $branch->sc_br_status = $request->school_status;
             $branch->sc_br_emi_no = $serialNumber;
@@ -72,7 +72,7 @@ class SchoolController extends Controller
             $branch->latitude = $request->latitude;
             $branch->longitude = $request->longitude;
             $branch->location_string = $request->location_string;
-    
+
             $branch->save();
 
             DB::commit();
