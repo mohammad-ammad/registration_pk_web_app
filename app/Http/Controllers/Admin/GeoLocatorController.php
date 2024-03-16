@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use DB;
+
 use App\Models\School;
 use App\Models\District;
-use DB;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class GeoLocatorController extends Controller
 {
@@ -25,7 +27,14 @@ class GeoLocatorController extends Controller
         $district_id = $request->query('district_id');
         $tehsil_id = $request->query('tehsil_id');
         $cities_id = $request->query('cities_id');
-        
+
+    Log::info('Received parameters:', [
+            'school_id' => $school_id,
+            'district_id' => $district_id,
+            'tehsil_id' => $tehsil_id,
+            'cities_id' => $cities_id,
+        ]);
+
         if($school_id !== null && $district_id !== null && $tehsil_id !== null && $cities_id !== null){
             $schools  = School::select('school_name','provinces.province_name','districts.district_name','cities.city_name','sc_br_name','sc_br_status','sc_br_id','latitude','longitude')
             ->join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
@@ -39,7 +48,7 @@ class GeoLocatorController extends Controller
             ->where('schools.school_id',$school_id)
             ->get();
         }
-        else 
+        else
         {
             $schools  = School::select('school_name','provinces.province_name','districts.district_name','cities.city_name','sc_br_name','sc_br_status','sc_br_id','latitude','longitude')
                                 ->join('schoolbranches','schools.school_id','schoolbranches.fk_school_id')
@@ -49,7 +58,7 @@ class GeoLocatorController extends Controller
                                 ->join('cities','cities.city_id','schoolbranches.fk_city_id')
                                 ->get();
         }
-        
+
         return response()->json($schools);
     }
 }
