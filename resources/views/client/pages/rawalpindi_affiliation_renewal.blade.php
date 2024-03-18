@@ -9,9 +9,9 @@
 @section('content')
 <section class="pt-44 px-4 md:px-10">
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
-    <h1 class="text-2xl md:text-3xl font-semibold my-3">School Registration Renewal </h1>
+    <h1 class="text-2xl md:text-3xl font-semibold my-3">Rawalpindi Affiliation Renewal </h1>
 
-    <form action="{{route('school_registration_renewal.submit')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('rawalpindi_affiliation.submit')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
             <!--Form Fields-->
@@ -153,10 +153,15 @@
 
             <div>
                 <label for="" class="text-sm font-semibold">1. Expired image of E- license or EMIS CODE of E- License.:</label>
-                <input type="file" accept="image/*" class="form-control-file" name="expiredelicense" placeholder="" required>
+                <input type="file" accept="image/*" class="form-control-file" name="rawalpindi_affiliation_renewal_expiredelicense" placeholder="" required>
             </div>
 
-            <div class="">
+
+            <!-- Submit Button -->
+
+        </div>
+        <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
+        <div class="">
                 @php
                 $num1 = rand(1, 10);
                 $num2 = rand(1, 10);
@@ -166,10 +171,6 @@
                 <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
                 <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
             </div>
-            <!-- Submit Button -->
-
-        </div>
-        <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
             <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">Submit</button>
         </div>
     </form>

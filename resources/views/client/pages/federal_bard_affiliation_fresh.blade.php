@@ -1,0 +1,289 @@
+@extends('client.layout')
+@section('styles')
+<link rel="stylesheet" href="{{asset('/assets/plugins/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+@endsection
+@section('content')
+<section class="pt-44 px-4 md:px-10">
+
+
+    {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
+    <h1 class="text-2xl md:text-3xl font-semibold my-3">Federal Board Affiliation Fresh Form </h1>
+
+    <form action="{{route('federal_affiliation.submit')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
+            <!--Form Fields-->
+            <div>
+                <label for="" class="text-sm font-semibold">School Name:</label>
+                <input type="text" name="school_name" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter School Name" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Address:</label>
+                <input type="text" name="address" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Address" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Owner Name:</label>
+                <input type="text" name="owner_name" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Owner Name" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Owner Contact:</label>
+                <input type="text" name="owner_contact" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Owner Contact" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">CNIC:</label>
+                <input type="text" name="owner_cnic" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Your CNIC" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Qualification</label>
+                <input type="text" name="qualification" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Qualification" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Owner Email Address:</label>
+                <input type="email" name="owner_email" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Owner Email ">
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Principal Name:</label>
+                <input type="text" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" name="principal_name" placeholder="Enter Principal Name" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Contact/WhatsApp:</label>
+                <input type="text" name="principal_contact" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Principal Contact:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Principal CNIC:</label>
+                <input type="text" name="principal_cnic" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Principal CNIC:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Principal Qualification:</label>
+                <input type="text" name="principal_qualification" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Principal Qualification:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Principal Email:</label>
+                <input type="email" name="principal_email" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Principal Email:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Level of School :</label>
+                <input type="text" name="school_level" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Level of School:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Gender:</label>
+                <select name="gender" id="" class="form-control outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+
+                </select>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">No of Classrooms :</label>
+                <input type="text" name="no_classrooms" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Classrooms:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">No of Wahsrooms :</label>
+                <input type="text" name="no_washrooms" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Washrooms:" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Total Staff:</label>
+                <input type="text" name="total_staff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Total Staff" required>
+            </div>
+            <div>
+                <label for="" class="text-sm font-semibold">Male Staff:</label>
+                <input type="text" name="male_staff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Male Staff" required>
+            </div>
+            <div>
+                <label for="" class="text-sm font-semibold">FeMale Staff:</label>
+                <input type="text" name="female_staff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter FeMale Staff" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Non Teaching Staff:</label>
+                <input type="text" name="nonteaching_staff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Non Teaching  Staff" required>
+            </div>
+            <div>
+                <label for="" class="text-sm font-semibold">Building:</label>
+                <select name="building" id="" class="form-control outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
+                    <option value="">Select</option>
+                    <option value="rented">Rented</option>
+                    <option value="owned">Owned</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Class/Grade:</label>
+                <input type="text" name="class" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Class" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Fee:</label>
+                <input type="text" name="fee" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Fee" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">No of Boys:</label>
+                <input type="text" name="boys" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Boys " required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">No of Girls:</label>
+                <input type="text" name="girls" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Girls " required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Total Students:</label>
+                <input type="text" name="total_students" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Total Students " required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Name:</label>
+                <input type="text" name="teacher_name" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Name" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher CNIC:</label>
+                <input type="text" name="teacher_cnic" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Cnic" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Qualification:</label>
+                <input type="text" name="teacher_qualification" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Qualification" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Subject:</label>
+                <input type="text" name="teacher_subject" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher subject" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Salary:</label>
+                <input type="text" name="teacher_salary" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Salary" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Registration letter/ E-license:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="registration_letter" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Map of Building:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="building_map" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Valid Rent Agreement:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="rent_agreement" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Staff statement with CNIC numbers including Librarian and Physical Training Instructor:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="staff_statement" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold"> Owner CNIC copy:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="owner_cnic_image" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Contact Number:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="contact_number_image" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Email Address:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="email_address_image" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Certificate of Registered Society:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="registered_certificate_image" placeholder="" required>
+            </div>
+            <!--
+            <div class="">
+                @php
+                $num1 = rand(1, 10);
+                $num2 = rand(1, 10);
+                $correctAnswer = $num1 + $num2;
+                @endphp
+                <label>What is the sum of {{ $num1 }} + {{ $num2 }}?</label>
+                <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
+                <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
+            </div> -->
+            <!-- Submit Button -->
+
+        </div>
+        <!-- Submit Button -->
+        <div class="flex flex-col md:flex-row justify-center md:justify-end gap-3 my-3">
+
+            <div class="">
+                @php
+                $num1 = rand(1, 10);
+                $num2 = rand(1, 10);
+                $correctAnswer = $num1 + $num2;
+                @endphp
+                <label>What is the sum of {{ $num1 }} + {{ $num2 }}?</label>
+                <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
+                <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
+            </div>
+            <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">Submit</button>
+        </div>
+    </form>
+    </div>
+</section>
+
+@endsection
+
+@section('scripts')
+
+@if (Session::has('message'))
+<script>
+    toastr.options = {
+        "progressBar": true,
+        "closeButton": true,
+    }
+    toastr.success("{{Session::get('message')}}")
+</script>
+
+@endif
+@if (Session::has('activity_error'))
+<script>
+    toastr.options = {
+        "progressBar": true,
+        "closeButton": true,
+    }
+
+    toastr.error("{{Session::get('error')}}")
+</script>
+
+@endif
+
+@if (Session::has('captcha_answer'))
+<script>
+    toastr.options = {
+        "progressBar": true,
+        "closeButton": true,
+    }
+
+    toastr.error("{{Session::get('captcha_answer')}}")
+</script>
+
+@endif
+@endsection

@@ -7,9 +7,13 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Client\BuildingEvaluationController;
 use App\Http\Controllers\Client\HygieneController;
 use App\Http\Controllers\Client\CollegeRegistrationFreshController;
+use App\Http\Controllers\Client\FederalBoradAffiliationFreshController;
 use App\Http\Controllers\Client\Ngo_RegistrationController;
 use App\Http\Controllers\Client\Rawalpindi_affiliation_freshController;
+use App\Http\Controllers\Client\RawalpindiBoradAffiliationRenewalController;
+use App\Http\Controllers\Client\SchoolRegistrationFreshController;
 use App\Http\Controllers\Client\SchoolRegistrationRenewalController;
+use App\Models\FederalBoardAffiliationFresh;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,4 +151,16 @@ Route::post('/building-evaluation',[BuildingEvaluationController::class,'buildin
 // fresh college registration
 Route::get('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration'])->name('college_registration_fresh');
 Route::post('/college-registration-fresh',[CollegeRegistrationFreshController::class,'college_registration_submit'])->name('college_registration.submit');
+
+
+
+// Federal Board Registration
+Route::get('/federal-board-affiliation-fresh',[FederalBoradAffiliationFreshController::class,'federal_affiliation'])->name('federal_affiliation_fresh');
+ Route::post('/federal-board-affiliation-fresh',[FederalBoradAffiliationFreshController::class,'federal_affiliation_submit'])->name('federal_affiliation.submit');
+
+//  Rawalpindi Board Renewal
+Route::get('/rawalpindi-board-affiliation-renewal',[RawalpindiBoradAffiliationRenewalController::class,'rawalpindi_affiliation_renewal'])->name('rawalpindi_affiliation_renewal');
+Route::post('/rawalpindi-board-affiliation-renewal',[RawalpindiBoradAffiliationRenewalController::class,'rawalpindi_affiliation_renewal_submit'])->name('rawalpindi_affiliation.submit');
+
+
 
