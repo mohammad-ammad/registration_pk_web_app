@@ -2,14 +2,14 @@
 <script src="{{asset('/assets/plugins/toastr/toastr.min.js')}}"></script>
 
 <script>
-    @if(session('error'))
-        toastr.error($('#error-message').val());
-    @endif
+    // @if(session('error'))
+    //     toastr.error($('#error-message').val());
+    // @endif
 
     @if(session('success'))
             toastr.success($('#success-message').val());
     @endif
-    
+
     const dropdownButton = document.querySelector(".service_dropdown");
     const dropdownMenu = document.querySelector(".dropdown-menu");
     const icon = document.querySelector(".fa-solid.fa-chevron-down");

@@ -214,7 +214,12 @@
                 <input type="text" name="play_area" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Play Area/Lawn " required>
             </div>
 
-            <div class="">
+
+
+            <!-- Submit Button -->
+        </div>
+        <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
+        <div class="">
             @php
         $num1 = rand(1, 10);
         $num2 = rand(1, 10);
@@ -224,10 +229,6 @@
     <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
     <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
                 </div>
-
-            <!-- Submit Button -->
-        </div>
-        <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
             <button type="submit" id="submitButton" class="bg-[#00C282] text-white w-full md:w-[200px] h-[35px] rounded-md shadow-md">Submit</button>
         </div>
           </form>

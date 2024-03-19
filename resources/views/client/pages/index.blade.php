@@ -70,7 +70,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/schoolimg.jpeg')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">School Registration For Fresh</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/school-registration-fresh" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge1.jpg')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">Federal Board Affiliation For Renewal</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/federal-board-affiliation-renewal" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>
@@ -125,7 +125,7 @@
                     <div class="flex justify-center items-center flex-col">
                         <img src="{{asset('/assets/dist/img/badge3.png')}}" class="w-[50px]" alt="school">
                         <h2 class="my-5 text-md font-semibold text-center">College Registration For Renewal</h2>
-                        <a href="" class="bg-[#00C282] text-white px-10 py-3 text-sm">
+                        <a href="/college-registration-renewal" class="bg-[#00C282] text-white px-10 py-3 text-sm">
                             Apply Now
                         </a>
                     </div>

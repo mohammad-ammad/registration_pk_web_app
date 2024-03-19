@@ -6,6 +6,7 @@ use App\Models\BuildingData;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -84,7 +85,7 @@ try {
 
 
 } catch (\Exception $e) {
-
+    Log::error($e);
     return redirect()->back()->with('error', "Please Try Again");
 }
 }

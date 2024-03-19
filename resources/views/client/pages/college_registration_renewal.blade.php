@@ -8,9 +8,9 @@
 @section('content')
 <section class="pt-44 px-4 md:px-10">
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
-    <h1 class="text-2xl md:text-3xl font-semibold my-3">College Registration Fresh </h1>
+    <h1 class="text-2xl md:text-3xl font-semibold my-3">College Registration Renewal </h1>
 
-    <form action="{{ route('college_registration.submit') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('college_registration_renewal.submit') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
             <!--Form Fields-->
@@ -334,7 +334,16 @@
                 <label for="">I declare that I have acquired and attached all necessary documents mentioned below</label>
             </div>
 
-
+            <!-- <div class="">
+            @php
+        $num1 = rand(1, 10);
+        $num2 = rand(1, 10);
+        $correctAnswer = $num1 + $num2;
+    @endphp
+    <label>What is the sum of {{ $num1 }} + {{ $num2 }}?</label>
+    <input type="hidden" name="correct_answer" value="{{ $correctAnswer }}">
+    <input type="text" name="captcha_answer" class="outline-gray-800 rounded-md w-10 p-5 h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)">
+                </div> -->
 
 
             <!-- Submit Button -->

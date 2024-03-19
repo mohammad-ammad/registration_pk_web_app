@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Client\BuildingEvaluationController;
 use App\Http\Controllers\Client\HygieneController;
 use App\Http\Controllers\Client\CollegeRegistrationFreshController;
+use App\Http\Controllers\Client\CollegeRegistrationRenewalController;
+use App\Http\Controllers\Client\FederalBoardRegistrationRenewalController;
 use App\Http\Controllers\Client\FederalBoradAffiliationFreshController;
 use App\Http\Controllers\Client\Ngo_RegistrationController;
 use App\Http\Controllers\Client\Rawalpindi_affiliation_freshController;
@@ -163,4 +165,17 @@ Route::get('/rawalpindi-board-affiliation-renewal',[RawalpindiBoradAffiliationRe
 Route::post('/rawalpindi-board-affiliation-renewal',[RawalpindiBoradAffiliationRenewalController::class,'rawalpindi_affiliation_renewal_submit'])->name('rawalpindi_affiliation.submit');
 
 
+// shcool Registration Fresh
+Route::get('/school-registration-fresh',[SchoolRegistrationFreshController::class,'school_registration_fresh'])->name('school_registration_fresh');
+Route::post('/school-registration-fresh',[SchoolRegistrationFreshController::class,'school_registration_fresh_submit'])->name('school_registration_fresh.submit');
+
+// Renewal college registration
+Route::get('/college-registration-renewal',[CollegeRegistrationRenewalController::class,'college_renewal'])->name('college_registration_renewal');
+Route::post('/college-registration-renewal',[CollegeRegistrationRenewalController::class,'college_renewal_submit'])->name('college_registration_renewal.submit');
+
+
+
+// Federal Board Registration Renewal
+Route::get('/federal-board-affiliation-renewal',[FederalBoardRegistrationRenewalController::class,'federal_affiliation_renewal'])->name('federal_affiliation_renewal');
+Route::post('/federal-board-affiliation-renewal',[FederalBoardRegistrationRenewalController::class,'federal_affiliation_renewal_submit'])->name('federal_affiliation_renewal.submit');
 

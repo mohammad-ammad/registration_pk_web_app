@@ -117,7 +117,7 @@
                     <label for="" class="text-sm font-semibold">Select District</label>
                     <select name="district" id="districtDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
                     </select>
-                </div>   
+                </div>
                 <div>
                     <label for="" class="text-sm font-semibold">Select Tehsil</label>
                     <select name="tehsil" id="tehsilDropdown" class="select2bs4 outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>

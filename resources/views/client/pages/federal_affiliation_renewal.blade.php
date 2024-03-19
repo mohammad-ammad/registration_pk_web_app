@@ -9,9 +9,9 @@
 @section('content')
 <section class="pt-44 px-4 md:px-10">
     {{-- <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5"> --}}
-    <h1 class="text-2xl md:text-3xl font-semibold my-3">School Registration Renewal </h1>
+    <h1 class="text-2xl md:text-3xl font-semibold my-3">Federal Affiliation Renewal </h1>
 
-    <form action="{{route('school_registration_renewal.submit')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('federal_affiliation_renewal.submit')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
             <!--Form Fields-->
@@ -91,77 +91,53 @@
             </div>
 
             <div>
-                <label for="" class="text-sm font-semibold">No of Classrooms :</label>
-                <input type="text" name="noclassrooms" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Classrooms:" required>
+                <label for="" class="text-sm font-semibold">Institute Code :</label>
+                <input type="text" name="institute_code" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Institute Code:" required>
             </div>
 
             <div>
-                <label for="" class="text-sm font-semibold">No of Wahsrooms :</label>
-                <input type="text" name="nowashrooms" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Washrooms:" required>
+                <label for="" class="text-sm font-semibold">Password :</label>
+                <input type="number" name="password" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Institute Code:" required>
             </div>
 
             <div>
-                <label for="" class="text-sm font-semibold">Total Staff:</label>
-                <input type="text" name="total_staff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Total Staff" required>
+                <label for="" class="text-sm font-semibold">Previous Affiliation letter Image:</label>
+                <input type="file" accept="image/*" class="form-control-file" name="previous_affiliation" placeholder="" required>
             </div>
-            <div>
-                <label for="" class="text-sm font-semibold">Male Staff:</label>
-                <input type="text" name="malestaff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Male Staff" required>
-            </div>
-            <div>
-                <label for="" class="text-sm font-semibold">FeMale Staff:</label>
-                <input type="text" name="femalestaff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter FeMale Staff" required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">Non Teaching Staff:</label>
-                <input type="text" name="nonteachingstaff" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Non Teaching  Staff" required>
-            </div>
-            <div>
-                <label for="" class="text-sm font-semibold">Building:</label>
-                <select name="building" id="" class="form-control outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" required>
-                    <option value="">Select</option>
-                    <option value="rented">Rented</option>
-                    <option value="owned">Owned</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">Class/Grade:</label>
-                <input type="text" name="class" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Class" required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">Fee:</label>
-                <input type="text" name="fee" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Fee" required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">No of Boys:</label>
-                <input type="text" name="boys" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Boys " required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">No of Girls:</label>
-                <input type="text" name="girls" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter No of Girls " required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">Total Students:</label>
-                <input type="text" name="totalstudents" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Total Students " required>
-            </div>
-
-            <div>
-                <label for="" class="text-sm font-semibold">1. Expired image of E- license or EMIS CODE of E- License.:</label>
-                <input type="file" accept="image/*" class="form-control-file" name="expiredelicense" placeholder="" required>
-            </div>
-
-
-            <!-- Submit Button -->
-
         </div>
+
+        <div>
+            <h2 class="text-sm font-semibold">Staff Statement (if any)</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Name:</label>
+                <input type="text" name="teacher_name" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Name" >
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher CNIC:</label>
+                <input type="text" name="teacher_cnic" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Cnic" >
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Qualification:</label>
+                <input type="text" name="teacher_qualification" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Qualification" >
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Subject:</label>
+                <input type="text" name="teacher_subject" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher subject" >
+            </div>
+
+            <div>
+                <label for="" class="text-sm font-semibold">Teacher Salary:</label>
+                <input type="text" name="teacher_salary" class="outline-none rounded-md w-full h-[35px] px-3" style="border: 1px solid rgb(211, 209, 209)" placeholder="Enter Teacher Salary" >
+            </div>
+        </div>
+
         <div class="flex flex-col md:flex-row justify-center md:justify-end items-center gap-3 my-3">
-        <div class="">
+            <div class="">
                 @php
                 $num1 = rand(1, 10);
                 $num2 = rand(1, 10);

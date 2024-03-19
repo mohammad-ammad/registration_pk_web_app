@@ -214,7 +214,7 @@
                 </select>
             </div>
 
-            <div class="flex justify-center items-center">
+            <div class="">
             @php
         $num1 = rand(1, 10);
         $num2 = rand(1, 10);
