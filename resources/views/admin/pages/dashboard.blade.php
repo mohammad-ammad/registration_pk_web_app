@@ -315,6 +315,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-warning">
@@ -326,9 +327,195 @@
                         <div class="icon">
                             <i class="fa fa-list-alt"></i>
                         </div>
-                        <a href="javascript:void(0)"
-                        data-type="CO"
-                        data-header="School registration Renewal" data-toggle="modal" data-target="#modal-xl"
+                        <a
+                        href="javascript:void(0)"
+                        data-type="School_registration_renewal"
+                        data-header="School Registration Renewal" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$school_registration_fresh}}</h3>
+
+                            <p>School registration Fresh</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-list-alt"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="School_registration_fresh"
+                        data-header="School Registration Fresh" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{$federal_board_affiliation_fresh}}</h3>
+
+                            <p>Federal Board Affiliation Fresh</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="federal_board_affiliation_fresh"
+                        data-header="Federal Board Affiliation Fresh" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$rawalpindi_affiliation_fresh}}</h3>
+
+                            <p>Rawalpindi Board Affiliation Fresh</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="rawalpindi_board_affiliation_fresh"
+                        data-header="Rawalpindi Board Affiliation Fresh" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{$federal_board_affiliation_renewal}}</h3>
+
+                            <p>Federal Board Affiliation Renewal</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="federal_board_affiliation_renewal"
+                        data-header="Federal Board Affiliation Renewal" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$rawalpindi_affiliation_renewal}}</h3>
+
+                            <p>Rwp Board Affiliation Renewal</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="rawalpindi_board_affiliation_renewal"
+                        data-header="Rawalpindi Board Affiliation Renewal" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$college_registration_fresh}}</h3>
+
+                            <p>College Registration Fresh</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="college_registration_fresh"
+                        data-header="College Registration Fresh" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{$college_registration_renewal}}</h3>
+
+                            <p>College Registration Renewal</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="college_registration_renewal"
+                        data-header="College Registration Renewal" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{$hygeine_certificate}}</h3>
+
+                            <p>Hygeine Certificate</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="hygeine_certificate"
+                        data-header="Hygeine Certificate" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{$building_certificate}}</h3>
+
+                            <p>Building Certificate</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="building_certificate"
+                        data-header="Building Certificate" data-toggle="modal" data-target="#modal-xl"
                         class="small-box-footer model">
                             More info <i class="fas fa-arrow-circle-right"></i>
                         </a>
@@ -451,7 +638,7 @@
                                     <td>{{ $school->owner_name }}</td>
                                     <td>{{ $school->city_name }}</td>
                                     <td
-                                        style="background-color: @if ($school->status_name === 'UnRegistered') rgb(254, 171, 171) @elseif($school->status_name === 'Registered') #90EE90 @elseif($school->status_name === 'UnderProcess') #FFFF33 @endif">
+                                        style="background-color: @if($school->status_name === 'UnRegistered') rgb(254, 171, 171) @elseif($school->status_name === 'Registered') #90EE90 @elseif($school->status_name === 'UnderProcess') #FFFF33 @endif">
                                         {{ $school->status_name }}</td>
                                 </tr>
                             @endforeach
@@ -487,6 +674,7 @@
   </div>
 
     <!-- /.content -->
+
 @endsection
 
 @section('scripts')
@@ -605,6 +793,7 @@
             });
 
             $(".model").click(function() {
+
                 let data_type = $(this).data("type");
                 let data_header = $(this).data("header");
 
@@ -646,6 +835,61 @@
 
                 if(data_type === "CO"){
                   schoolTypeList("Combined")
+                }
+
+                if(data_type === "School_registration_renewal"){
+                  SchoolRegistrationRenewal("School_registration_renewal");
+                }
+
+                if(data_type === "School_registration_fresh"){
+
+                  SchoolRegistrationFresh();
+                }
+
+                if(data_type === "federal_board_affiliation_fresh"){
+
+                  FederalBoardAffiliationFresh();
+
+                }
+
+                if(data_type === "rawalpindi_board_affiliation_fresh"){
+
+                  RawalpindiBoardAffiliationFresh();
+
+                }
+
+                if(data_type === "federal_board_affiliation_renewal"){
+
+                  FederalBoardAffiliationRenewal();
+
+                }
+
+                if(data_type === "rawalpindi_board_affiliation_renewal"){
+
+                  RawalpindiBoardAffiliationRenewal();
+
+                }
+
+                if(data_type === "college_registration_fresh"){
+
+                  CollegeRegistrationFresh();
+
+                }
+
+                if(data_type === "college_registration_renewal"){
+
+                  CollegeRegistrationRenewal();
+
+                }
+
+                if(data_type === "hygeine_certificate"){
+                    HygeineCertificate();
+
+                }
+
+                if(data_type === "building_certificate"){
+                    BuildingCertificate();
+
                 }
 
             });
@@ -934,5 +1178,1000 @@
                 });
               }
         });
+
+
+
+
+
+
+
+
+function SchoolRegistrationRenewal() {
+                $.ajax({
+                  url: `/admin/dashboard/school_registration_renewal`,
+                  type: 'GET',
+                  success: function(data) {
+                    // Check if data is an array and has items
+                    console.log(data)
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+
+                          <td>${school.schoolname}</td>
+                            <td>${school.address}</td>
+                            <td>${school.ownername}</td>
+                            <td>
+                                <a href="/admin/dashboard/school_registration_renewal-update/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+                            </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+                                                <th>Address</th>
+                                                <th>Owner Name</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+
+
+            function SchoolRegistrationFresh() {
+                $.ajax({
+                  url: `/admin/dashboard/school_registration_fresh`,
+                  type: 'GET',
+                  success: function(data) {
+                    console.log("fresh data is")
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.school_name}</td>
+                        <td>${school.branch_name}</td>
+                        <td>${school.school_address}</td>
+                        <td>
+                                <a href="/admin/dashboard/school_registration_fresh-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+                                                <th>Branch</th>
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+
+ function RawalpindiBoardAffiliationFresh() {
+                $.ajax({
+                  url: `/admin/dashboard/rawalpindi_affiliation_fresh`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.school_name}</td>
+                        <td>${school.address}</td>
+                        <td>
+                                <a href="/admin/dashboard/rawalpindi_affiliation_fresh-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+            function FederalBoardAffiliationFresh() {
+                $.ajax({
+                  url: `/admin/dashboard/federal_affiliation_fresh`,
+                  type: 'GET',
+                  success: function(data) {
+                    console.log("federal data is")
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.school_name}</td>
+                        <td>${school.address}</td>
+                        <td>
+                                <a href="/admin/dashboard/federal_affiliation_fresh-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+            function FederalBoardAffiliationRenewal() {
+                $.ajax({
+                  url: `/admin/dashboard/federal_affiliation_renewal`,
+                  type: 'GET',
+                  success: function(data) {
+                    console.log("federal data is")
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.schoolname}</td>
+                        <td>${school.address}</td>
+                        <td>
+                                <a href="/admin/dashboard/federal_affiliation_renewal-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+            function CollegeRegistrationFresh() {
+                $.ajax({
+                  url: `/admin/dashboard/college_registration_fresh`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.college_name}</td>
+                        <td>${school.district}</td>
+                        <td>${school.tehsil}</td>
+                        <td>
+                                <a href="/admin/dashboard/college_registration_fresh-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+            function CollegeRegistrationRenewal() {
+                $.ajax({
+                  url: `/admin/dashboard/college_registration_renewal`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.college_name}</td>
+                        <td>${school.district}</td>
+                        <td>${school.tehsil}</td>
+                        <td>
+                                <a href="/admin/dashboard/college_registration_renewal-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+
+            function RawalpindiBoardAffiliationRenewal() {
+                $.ajax({
+                  url: `/admin/dashboard/rawalpindi_affiliation_renewal`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.schoolname}</td>
+                        <td>${school.address}</td>
+                        <td>
+                                <a href="/admin/dashboard/rawalpindi_affiliation_renewal-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+            function HygeineCertificate() {
+                $.ajax({
+                  url: `/admin/dashboard/hygeine_certificate`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.institute_name}</td>
+                        <td>${school.institute_address}</td>
+                        <td>
+                                <a href="/admin/dashboard/hygeine_certificate-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+
+            function BuildingCertificate() {
+                $.ajax({
+                  url: `/admin/dashboard/building_certificate`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.schoolname}</td>
+                        <td>${school.address}</td>
+                        <td>${school.total_area}</td>
+                        <td>
+                                <a href="/admin/dashboard/building_certificate-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+
+
+
     </script>
 @endsection

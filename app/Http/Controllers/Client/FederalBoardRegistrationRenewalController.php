@@ -61,7 +61,8 @@ class FederalBoardRegistrationRenewalController extends Controller
         }
 
         try{
-            $previous_affiliation = $request->file('previous_affiliation')->store('public/federal_renewal');
+            // $previous_affiliation = $request->file('previous_affiliation')->store('public/federal_renewal');
+            $previous_affiliation = $request->file('previous_affiliation')->store('federal_renewal');
 
 
               FederalAffiliationRenewal::create(array_merge($request->all(), [

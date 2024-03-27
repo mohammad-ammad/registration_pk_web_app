@@ -32,7 +32,7 @@ class AuthenticationController extends Controller
                 return redirect('/admin/login')->with('error', 'Invalid login credentials.');
             }
         }
-        else 
+        else
         {
             return redirect('/admin/login')->with('error', 'Invalid login credentials.');
         }
@@ -43,7 +43,7 @@ class AuthenticationController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/admin/login')->with('success', 'You have been logged out.');
     }
 }

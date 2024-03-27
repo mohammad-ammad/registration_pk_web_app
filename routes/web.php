@@ -46,7 +46,60 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard/master/search/pr/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_pr_ajax"]);
         Route::get('/dashboard/master/search/ds/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ds_ajax"]);
         Route::get('/dashboard/master/search/ts/ajax', [App\Http\Controllers\Admin\DashboardController::class, "get_master_search_by_ts_ajax"]);
-        // Route::get('/get-school-registration-renewal-info/{id}',[DashboardController::class,'index'])->name('get.school.registration.renewal.info');
+        // school Renewal data routes
+        Route::get('/dashboard/school_registration_renewal',[DashboardController::class,'get_school_registration_renewal'])->name('get.school.registration.renewal.info');
+        Route::get('/dashboard/school_registration_renewal-update/{id}',[DashboardController::class,'school_registration_renewal_update'])->name('get.school.registration.renewal.update');
+        Route::put('/dashboard/school_registration_renewal-edit/{id}',[DashboardController::class,'school_registration_renewal_edit'])->name('get.school.registration.renewal.edit');
+
+        // School Fresh Data Routes
+        Route::get('/dashboard/school_registration_fresh',[DashboardController::class,'get_school_registration_fresh'])->name('get.school.registration.fresh.info');
+        Route::get('/dashboard/school_registration_fresh-edit/{id}',[DashboardController::class,'get_school_registration_fresh_edit'])->name('get.school.registration.fresh.edit');
+        Route::put('/dashboard/school_registration_fresh-update/{id}',[DashboardController::class,'get_school_registration_fresh_update'])->name('get.school.registration.fresh.update');
+
+        // Federal Board Affiliation Fresh Routes
+        Route::get('/dashboard/federal_affiliation_fresh',[DashboardController::class,'federal_affiliation_fresh'])->name('federal.board.affiliation.fresh.info');
+        Route::get('/dashboard/federal_affiliation_fresh-edit/{id}',[DashboardController::class,'federal_affiliation_fresh_edit'])->name('federal.board.affiliation.fresh.edit');
+        Route::put('/dashboard/federal_affiliation_fresh-update/{id}',[DashboardController::class,'federal_affiliation_fresh_update'])->name('federal.board.affiliation.fresh.update');
+
+        // Federal Board Affiliation Renewal Route
+        Route::get('/dashboard/federal_affiliation_renewal',[DashboardController::class,'federal_affiliation_renewal'])->name('federal.board.affiliation.renewal.info');
+        Route::get('/dashboard/federal_affiliation_renewal-edit/{id}',[DashboardController::class,'federal_affiliation_renewal_edit'])->name('federal.board.affiliation.renewal.edit');
+        Route::put('/dashboard/federal_affiliation_renewal-update/{id}',[DashboardController::class,'federal_affiliation_renewal_update'])->name('federal.board.affiliation.renewal.update');
+
+
+        // Rawalpindi Board Affiliation for Fresh
+        Route::get('/dashboard/rawalpindi_affiliation_fresh',[DashboardController::class,'rawalpindi_affiliation_fresh'])->name('rawalpindi.board.affiliation.fresh.info');
+        Route::get('/dashboard/rawalpindi_affiliation_fresh-edit/{id}',[DashboardController::class,'rawalpindi_affiliation_fresh_edit'])->name('rawalpindi.board.affiliation.fresh.edit');
+        Route::put('/dashboard/rawalpindi_affiliation_fresh-update/{id}',[DashboardController::class,'rawalpindi_affiliation_fresh_update'])->name('rawalpindi.board.affiliation.fresh.update');
+
+        // Rawalpindi Board Affiliation for Renewal
+        Route::get('/dashboard/rawalpindi_affiliation_renewal',[DashboardController::class,'rawalpindi_affiliation_renewal'])->name('rawalpindi.board.affiliation.renewal.info');
+        Route::get('/dashboard/rawalpindi_affiliation_renewal-edit/{id}',[DashboardController::class,'rawalpindi_affiliation_renewal_edit'])->name('rawalpindi.board.affiliation.renewal.edit');
+        Route::put('/dashboard/rawalpindi_affiliation_renewal-update/{id}',[DashboardController::class,'rawalpindi_affiliation_renewal_update'])->name('rawalpindi.board.affiliation.renewal.update');
+
+         // College Registration for Fresh
+         Route::get('/dashboard/college_registration_fresh',[DashboardController::class,'get_college_registration_fresh'])->name('get.college.registration.fresh.info');
+         Route::get('/dashboard/college_registration_fresh-edit/{id}',[DashboardController::class,'get_college_registration_fresh_edit'])->name('get.college.registration.fresh.edit');
+         Route::put('/dashboard/college_registration_fresh-update/{id}',[DashboardController::class,'get_college_registration_fresh_update'])->name('get.college.registration.fresh.update');
+
+
+         // College Registration for Renewal
+         Route::get('/dashboard/college_registration_renewal',[DashboardController::class,'get_college_registration_renewal'])->name('get.college.registration.renewal.info');
+         Route::get('/dashboard/college_registration_renewal-edit/{id}',[DashboardController::class,'get_college_registration_renewal_edit'])->name('get.college.registration.renewal.edit');
+         Route::put('/dashboard/college_registration_renewal-update/{id}',[DashboardController::class,'get_college_registration_renewal_update'])->name('get.college.registration.renewal.update');
+
+         // Hygeine Certificate
+         Route::get('/dashboard/hygeine_certificate',[DashboardController::class,'hygeine_certificate'])->name('hygeine.certificate.info');
+         Route::get('/dashboard/hygeine_certificate-edit/{id}',[DashboardController::class,'hygeine_certificate_edit'])->name('hygeine.certificate.edit');
+         Route::put('/dashboard/hygeine_certificate-update/{id}',[DashboardController::class,'hygeine_certificate_update'])->name('hygeine.certificate.update');
+
+
+         // Building Certificate
+         Route::get('/dashboard/building_certificate',[DashboardController::class,'building_certificate'])->name('building.certificate.info');
+         Route::get('/dashboard/building_certificate-edit/{id}',[DashboardController::class,'building_certificate_edit'])->name('building.certificate.edit');
+         Route::put('/dashboard/building_certificate-update/{id}',[DashboardController::class,'building_certificate_update'])->name('building.certificate.update');
+
+
 
 
         Route::get('/logout', [App\Http\Controllers\Auth\AuthenticationController::class, "logout"])->name("admin.logout");
@@ -133,7 +186,7 @@ Route::get('/get-affiliation-data-json', [AffiliationController::class, 'getAffi
 // Route::post('/home/hygienic-form', [HygieneController::class, 'store'])->name('hygiene-application-submit');
 
 
-// home page affiliation routes
+// Rawalpindi affiliation routes
 Route::get('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh'])->name('rwp_affiliation.fresh');
 Route::post('/rawalpindi-affiliation-fresh',[Rawalpindi_affiliation_freshController::class,'rwp_affiliation_fresh_submit'])->name('rwp_affiliation.fresh.submit');
 

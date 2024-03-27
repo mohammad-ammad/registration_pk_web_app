@@ -1,15 +1,16 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+
+    <!-- <a href="index3.html" class="brand-link">
       <img src="{{asset("assets/dist/img/logo.png")}}" alt="registration.pk" class="brand-image" style="width: 60px; height:60px; object-fit: contain">
       <span class="brand-text font-weight-light">{{ env('APP_NAME') }}</span>
-    </a>
+    </a> -->
 
     <!-- Sidebar -->
     <div class="sidebar">
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline mt-3">
+      <div class="form-inline  mt-3">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -23,7 +24,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+
           <li class="nav-item">
             <a href="{{ route('admin.dashboard',['tehsil' => '6', 'province' => '1']) }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>

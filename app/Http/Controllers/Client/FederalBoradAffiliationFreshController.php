@@ -80,14 +80,25 @@ class FederalBoradAffiliationFreshController extends Controller
         }
 
         try{
-        $registrationLetterPath = $request->file('registration_letter')->store('public/federal');
-        $buildingMapPath = $request->file('building_map')->store('public/federal');
-        $rentAgreementPath = $request->file('rent_agreement')->store('public/federal');
-        $staffStatementPath = $request->file('staff_statement')->store('public/federal');
-        $ownerCnicImagePath = $request->file('owner_cnic_image')->store('public/schools');
-        $contactNumberImagePath = $request->file('contact_number_image')->store('public/federal');
-        $emailAddressImagePath = $request->file('email_address_image')->store('public/federal');
-        $registeredCertificateImagePath = $request->file('registered_certificate_image')->store('public/federal');
+        // $registrationLetterPath = $request->file('registration_letter')->store('public/federal');
+        // $buildingMapPath = $request->file('building_map')->store('public/federal');
+        // $rentAgreementPath = $request->file('rent_agreement')->store('public/federal');
+        // $staffStatementPath = $request->file('staff_statement')->store('public/federal');
+        // $ownerCnicImagePath = $request->file('owner_cnic_image')->store('public/schools');
+        // $contactNumberImagePath = $request->file('contact_number_image')->store('public/federal');
+        // $emailAddressImagePath = $request->file('email_address_image')->store('public/federal');
+        // $registeredCertificateImagePath = $request->file('registered_certificate_image')->store('public/federal');
+
+
+        $registrationLetterPath = $request->file('registration_letter')->store('federal');
+        $buildingMapPath = $request->file('building_map')->store('federal');
+        $rentAgreementPath = $request->file('rent_agreement')->store('federal');
+        $staffStatementPath = $request->file('staff_statement')->store('federal');
+        $ownerCnicImagePath = $request->file('owner_cnic_image')->store('schools');
+        $contactNumberImagePath = $request->file('contact_number_image')->store('federal');
+        $emailAddressImagePath = $request->file('email_address_image')->store('federal');
+        $registeredCertificateImagePath = $request->file('registered_certificate_image')->store('federal');
+
 
           FederalBoardAffiliationFresh::create(array_merge($request->all(), [
 
