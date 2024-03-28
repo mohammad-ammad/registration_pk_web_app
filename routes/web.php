@@ -100,6 +100,12 @@ Route::prefix('admin')->group(function () {
          Route::put('/dashboard/building_certificate-update/{id}',[DashboardController::class,'building_certificate_update'])->name('building.certificate.update');
 
 
+         // Ngo Registration
+         Route::get('/dashboard/ngo_registration',[DashboardController::class,'ngo_registration'])->name('ngo.registration.info');
+         Route::get('/dashboard/ngo_registration-edit/{id}',[DashboardController::class,'ngo_registration_edit'])->name('ngo.registration.edit');
+         Route::put('/dashboard/ngo_registration-update/{id}',[DashboardController::class,'ngo_registration_update'])->name('ngo.registration.update');
+
+
 
 
         Route::get('/logout', [App\Http\Controllers\Auth\AuthenticationController::class, "logout"])->name("admin.logout");

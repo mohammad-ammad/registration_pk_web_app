@@ -16,6 +16,7 @@ use App\Models\District;
 use App\Models\FederalAffiliationRenewal;
 use App\Models\FederalBoardAffiliationFresh;
 use App\Models\HygieneApplication;
+use App\Models\NGO_Registartion;
 use App\Models\RawalpindiBoardAffiliationRenewal;
 use App\Models\RwpAffiliateFormFresh;
 use App\Models\SchoolRegistrationFresh;
@@ -61,6 +62,7 @@ class DashboardController extends Controller
         $college_registration_renewal = CollegeRegistrationRenewal::count();
         $hygeine_certificate = HygieneApplication::count();
         $building_certificate = BuildingData::count();
+        $ngo_registration = NGO_Registartion::count();
 
 
 
@@ -115,7 +117,8 @@ class DashboardController extends Controller
 
 
         return view('admin.pages.dashboard',compact('school_registration_renewal','school_registration_fresh','federal_board_affiliation_fresh',
-        'rawalpindi_affiliation_fresh','federal_board_affiliation_renewal','rawalpindi_affiliation_renewal','college_registration_fresh','college_registration_renewal','hygeine_certificate','building_certificate'))
+        'rawalpindi_affiliation_fresh','federal_board_affiliation_renewal','rawalpindi_affiliation_renewal','college_registration_fresh','college_registration_renewal','hygeine_certificate','building_certificate'
+        ,'ngo_registration'))
         ->with('sc_count',$sc_count)
         ->with('sc_re_count',$sc_re_count)
         ->with('sc_ure_count',$sc_ure_count)
@@ -1050,6 +1053,43 @@ public function building_certificate_update(request $request , $id){
         Log::error('Error creating record:', ['error' => $e->getMessage()]);
     }
 
+
+}
+
+
+// Ngo Registration code
+
+public function ngo_registration(){
+    $ngo = NGO_Registartion::get();
+    return response()->json($ngo);
+}
+
+
+public function ngo_registration_edit(Request $request , $id){
+    $ngo = NGO_Registartion::findorFail($id);
+    return view('admin.pages.edit_ngo_registration',compact('ngo'));
+}
+
+public function ngo_registration_update(Request $request , $id){
+    try{
+        $ngo = NGO_Registartion::findorFail($id);
+        $ngo->update([
+            'president_name' => $request->input('president_name'),
+            'president_cnic' => $request->input('president_cnic'),
+            'ngo_name' => $request->input('ngo_name'),
+            'head_office_address' => $request->input('head_office_address'),
+            'organization_purpose' => $request->input('organization_purpose'),
+            'area_of_operation' => $request->input('area_of_operation'),
+            'ngo_nature' => $request->input('ngo_nature'),
+            'establishing_date' => $request->input('establishing_date'),
+        ]);
+
+        return redirect()->back()->with('message', 'Building details updated successfully.');
+    }
+    catch(\Exception $e){
+        return redirect()->back()->with('error', "Error updating record: " . $e->getMessage());
+        Log::error('Error creating record:', ['error' => $e->getMessage()]);
+    }
 
 }
 

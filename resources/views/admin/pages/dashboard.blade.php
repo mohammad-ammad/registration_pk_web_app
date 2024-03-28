@@ -521,6 +521,26 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{$ngo_registration}}</h3>
+
+                            <p>Ngo Registration</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <a
+                        href="javascript:void(0)"
+                        data-type="ngo_registration"
+                        data-header="Ngo Registration" data-toggle="modal" data-target="#modal-xl"
+                        class="small-box-footer model">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- /.row -->
@@ -889,6 +909,11 @@
 
                 if(data_type === "building_certificate"){
                     BuildingCertificate();
+
+                }
+
+                if(data_type === "ngo_registration"){
+                    NgoRegistration();
 
                 }
 
@@ -2091,6 +2116,105 @@ function SchoolRegistrationRenewal() {
                         <td>${school.total_area}</td>
                         <td>
                                 <a href="/admin/dashboard/building_certificate-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+
+
+
+
+                        </tr>
+                          `;
+                      });
+
+                    // Set the HTML content of the table body
+                    $(".modal-body").html(`
+                      <section class="content">
+                        <div class="container-fluid">
+                          <div class="d-flex my-3">
+                            <input type="text" class="form-control" id="search_by_sr_no" placeholder="Search by Sr No.">
+                            <button type="button" class="btn btn-dark ml-2" id="search_filter_btn">
+                              search
+                            </button>
+                          </div>
+                          <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">ALL Schools</h3>
+                            </div>
+                            <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped search-table">
+                                <thead>
+                                  <tr>
+
+                                                <th>School Name</th>
+
+                                                <th>Address</th>
+
+                                                <th>More Details</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  ${tableRows}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    `);
+
+                    $("#search_filter_btn").on("click", function () {
+                      var searchValue = $("#search_by_sr_no").val();
+                      filterTable(searchValue);
+                    });
+
+                } else {
+                  // Handle the case where no data is received
+                  $(".modal-body").html('<p>No data available</p>');
+                }
+              },
+              error: function(error) {
+                console.log('Error:', error);
+                // Handle the error case
+                $(".modal-body").html('<p>Error loading data</p>');
+              }
+
+
+            });
+            function filterTable(searchValue) {
+                $(".search-table tbody tr").each(function () {
+                  var snValue = $(this).find("td:first-child").text();
+                  if (snValue.includes(searchValue)) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              }
+            }
+
+
+            function NgoRegistration() {
+                $.ajax({
+                  url: `/admin/dashboard/ngo_registration`,
+                  type: 'GET',
+                  success: function(data) {
+
+                    // Check if data is an array and has items
+                    if (Array.isArray(data) && data.length > 0) {
+                      // Accumulate HTML for table rows
+                      var tableRows = '';
+
+                      // Iterate through the data
+                      $.each(data, function(index, school) {
+                        tableRows += `
+                        <tr>
+                        <td>${school.president_name}</td>
+                        <td>${school.president_cnic}</td>
+                        <td>${school.ngo_name}</td>
+                        <td>
+                                <a href="/admin/dashboard/ngo_registration-edit/${school.id}" class="btn btn-primary btn-sm mr-1">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
